@@ -11,8 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jaredcordell/bws-site-assets@main/css/styles.css">
   <style>
-    /* Services bento: 2 cards on the top row, 3 on the bottom row (desktop only).
-       Uses a 6-column track so the top pair spans 3 each and the bottom trio spans 2 each.
+    /* Services bento: 2 large cards on the first row, the rest 3-up below (desktop only).
+       Uses a 6-column track so the top pair spans 3 each and every card after spans 2 (3 per row).
        Below 1024px the shared stylesheet already collapses .bento to a single column. */
     @media (min-width: 1025px) {
       .tpl-home .bento.bento-2-3 { grid-template-columns: repeat(6, 1fr); }
@@ -90,7 +90,7 @@
     <div class="container">
       <div class="sec-head">
         <span class="h-eyebrow">What we do</span>
-        <h2 class="headline wide">Five ways we find you money. <span class="dim">Every analysis is free, you only move forward when the numbers make sense.</span></h2>
+        <h2 class="headline wide">Eight ways we save you money and protect your business. <span class="dim">Every analysis is free, you only move forward when the numbers make sense.</span></h2>
       </div>
 
       <div class="bento bento-2-3">
@@ -185,6 +185,59 @@
           <div class="bc-copy">
             <h3>Payroll &amp; Health</h3>
             <p>One cloud platform for payroll and HR, bundled with supplemental health plan medical benefits, for a net cost of just $2.20 per employee, per month. Better benefits, less admin, and payroll tax savings that fund it all.</p>
+            <span class="link-arrow">Learn more <span class="arr">→</span></span>
+          </div>
+        </a>
+
+        <!-- Unclaimed Property, recovery match list -->
+        <a href="/unclaimed-property" class="bento-card">
+          <div class="bc-stage">
+            <div class="mock">
+              <div class="mock-headline"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 12l4 4L19 6"/></svg></span> 2 unclaimed properties found</div>
+              <div class="mrow"><span class="l">State treasury deposit</span><span class="v">$12,480</span></div>
+              <div class="mrow"><span class="l">Vendor refund on file</span><span class="v">$3,910</span></div>
+              <div class="mrow total"><span class="l">Total recoverable</span><span class="v">$16,390</span></div>
+            </div>
+          </div>
+          <div class="bc-copy">
+            <h3>Unclaimed Property</h3>
+            <p>Billions sit unclaimed in state accounts. We search every state for money that's already yours and recover it, on a no-recovery, no-fee basis.</p>
+            <span class="link-arrow">Learn more <span class="arr">→</span></span>
+          </div>
+        </a>
+
+        <!-- Bookkeeping, monthly close -->
+        <a href="/bookkeeping" class="bento-card">
+          <div class="bc-stage">
+            <div class="mock" style="border-radius:12px">
+              <div class="mock-bar"><span class="mock-title" style="margin-left:0">Monthly close</span></div>
+              <div class="mrow"><span class="l">Accounts reconciled</span><span class="v" style="color:var(--green)">Done</span></div>
+              <div class="mrow"><span class="l">Expenses categorized</span><span class="v" style="color:var(--green)">Done</span></div>
+              <div class="mrow"><span class="l">Financial reports</span><span class="v" style="color:var(--green)">Ready</span></div>
+              <div class="mrow total"><span class="l">Books status</span><span class="v" style="color:var(--green)">Current</span></div>
+            </div>
+          </div>
+          <div class="bc-copy">
+            <h3>Bookkeeping</h3>
+            <p>Clean, current books without a full-time hire. Reconciliation, reporting, payroll and billing, scaled to your business with no long-term contract.</p>
+            <span class="link-arrow">Learn more <span class="arr">→</span></span>
+          </div>
+        </a>
+
+        <!-- Commercial Insurance, coverage quote list -->
+        <a href="/commercial-insurance" class="bento-card">
+          <div class="bc-stage">
+            <div class="mock">
+              <div class="mock-headline"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 12l4 4L19 6"/></svg></span> 4 coverages, quoted together</div>
+              <div class="mrow"><span class="l">Commercial property</span><span class="chip-ok">Quoted</span></div>
+              <div class="mrow"><span class="l">General liability</span><span class="chip-ok">Quoted</span></div>
+              <div class="mrow"><span class="l">Commercial auto</span><span class="chip-ok">Quoted</span></div>
+              <div class="mrow"><span class="l">Workers&rsquo; comp</span><span class="chip-blue">In review</span></div>
+            </div>
+          </div>
+          <div class="bc-copy">
+            <h3>Commercial Insurance</h3>
+            <p>Property, auto, general liability, and workers&rsquo; comp, shopped across carriers by licensed advisors so you get the right coverage at the right price.</p>
             <span class="link-arrow">Learn more <span class="arr">→</span></span>
           </div>
         </a>
