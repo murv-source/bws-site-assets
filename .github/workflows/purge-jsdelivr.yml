@@ -1,0 +1,39 @@
+name: Purge jsDelivr cache
+
+# The GHL pages load the shared chrome (header/footer partials, styles.css,
+# site.js) live from this repo via jsDelivr. jsDelivr caches those files, so a
+# change isn't visible on the site until the cache is purged. This workflow
+# does that automatically on every push to main that touches a CDN-served file,
+# so global changes go live with no manual purge and no GHL editing.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'partials/**'
+      - 'css/**'
+      - 'js/**'
+  workflow_dispatch: {}
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Purge CDN assets on jsDelivr
+        run: |
+          set -euo pipefail
+          REPO="gh/${GITHUB_REPOSITORY}@main"
+          echo "Purging jsDelivr cache for ${REPO}"
+          fail=0
+          # Every file the site loads from the CDN lives under these dirs.
+          while IFS= read -r f; do
+            url="https://purge.jsdelivr.net/${REPO}/${f}"
+            code=$(curl -sS -o /dev/null -w '%{http_code}' "$url" || echo "000")
+            echo "  ${code}  ${f}"
+            [ "$code" = "200" ] || fail=1
+          done < <(find partials css js -type f ! -name '*.md' | sort)
+          if [ "$fail" -ne 0 ]; then
+            echo "::warning::One or more purge requests did not return 200"
+          fi
