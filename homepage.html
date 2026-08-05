@@ -11,13 +11,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jaredcordell/bws-site-assets@main/css/styles.css">
   <style>
-    /* Services bento: 2 large cards on the first row, the rest 3-up below (desktop only).
-       Uses a 6-column track so the top pair spans 3 each and every card after spans 2 (3 per row).
+    /* Services bento: the flagship Business in a Pack card spans the full width on the
+       first row, then the individual services run 3-up below (desktop only).
+       Uses a 6-column track: card 1 spans 6, every card after spans 2 (3 per row).
        Below 1024px the shared stylesheet already collapses .bento to a single column. */
     @media (min-width: 1025px) {
       .tpl-home .bento.bento-2-3 { grid-template-columns: repeat(6, 1fr); }
-      .tpl-home .bento.bento-2-3 > .bento-card:nth-child(-n+2) { grid-column: span 3; }
-      .tpl-home .bento.bento-2-3 > .bento-card:nth-child(n+3) { grid-column: span 2; }
+      .tpl-home .bento.bento-2-3 > .bento-card:nth-child(1) { grid-column: span 6; }
+      .tpl-home .bento.bento-2-3 > .bento-card:nth-child(1) .bc-stage { max-height: 320px; }
+      .tpl-home .bento.bento-2-3 > .bento-card:nth-child(n+2) { grid-column: span 2; }
     }
   </style>
 </head>
@@ -90,10 +92,29 @@
     <div class="container">
       <div class="sec-head">
         <span class="h-eyebrow">What we do</span>
-        <h2 class="headline wide">Eight ways we save you money and protect your business. <span class="dim">Every analysis is free, you only move forward when the numbers make sense.</span></h2>
+        <h2 class="headline wide">Take the whole pack, or just what you need. <span class="dim">Every analysis is free, you only move forward when the numbers make sense.</span></h2>
       </div>
 
       <div class="bento bento-2-3">
+
+        <!-- Business in a Pack, flagship all-in-one offering -->
+        <a href="/business-in-a-pack" class="bento-card">
+          <div class="bc-stage">
+            <div class="mock" style="border-radius:12px">
+              <div class="mock-bar"><span class="mock-title" style="margin-left:0">One partner &middot; one invoice</span></div>
+              <div class="mrow"><span class="l">Payroll, HR &amp; HCM</span><span class="v" style="color:var(--green)">Included</span></div>
+              <div class="mrow"><span class="l">Bookkeeping &amp; accounting</span><span class="v" style="color:var(--green)">Included</span></div>
+              <div class="mrow"><span class="l">Merchant processing</span><span class="v" style="color:var(--green)">Included</span></div>
+              <div class="mrow"><span class="l">Benefits, 401(k) &amp; workers' comp</span><span class="v" style="color:var(--green)">Included</span></div>
+              <div class="mrow total"><span class="l">Web, marketing &amp; managed IT</span><span class="v" style="color:var(--green)">Included</span></div>
+            </div>
+          </div>
+          <div class="bc-copy">
+            <h3>Business in a Pack</h3>
+            <p>Everything your pack needs to run, grow, and thrive. Eight essential business services, professionally managed and seamlessly integrated, under one partner with one invoice. Take the whole pack or start with the piece costing you the most.</p>
+            <span class="link-arrow">Learn more <span class="arr">→</span></span>
+          </div>
+        </a>
 
         <!-- R&D, statement mockup -->
         <a href="/r-d-tax-credits" class="bento-card">
@@ -238,6 +259,23 @@
           <div class="bc-copy">
             <h3>Commercial Insurance</h3>
             <p>Property, auto, general liability, and workers&rsquo; comp, shopped across carriers by licensed advisors so you get the right coverage at the right price.</p>
+            <span class="link-arrow">Learn more <span class="arr">→</span></span>
+          </div>
+        </a>
+
+        <!-- Personal & Farm Insurance, coverage list -->
+        <a href="/personal-insurance" class="bento-card">
+          <div class="bc-stage">
+            <div class="mock">
+              <div class="mock-headline"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M5 12l4 4L19 6"/></svg></span> Personal &amp; farm lines</div>
+              <div class="mrow"><span class="l">Home, auto &amp; renters</span><span class="chip-ok">Quoted</span></div>
+              <div class="mrow"><span class="l">Cycle, boat, RV &amp; umbrella</span><span class="chip-ok">Quoted</span></div>
+              <div class="mrow"><span class="l">Farm, crop &amp; equine</span><span class="chip-blue">In review</span></div>
+            </div>
+          </div>
+          <div class="bc-copy">
+            <h3>Personal &amp; Farm Insurance</h3>
+            <p>Home, auto, renters, recreational vehicles, umbrella, flood, farm, crop, and equine coverage. Send your declaration page and licensed advisors will review what you carry today, free.</p>
             <span class="link-arrow">Learn more <span class="arr">→</span></span>
           </div>
         </a>
