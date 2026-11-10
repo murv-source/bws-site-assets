@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jaredcordell/bws-site-assets@main/css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/murv-source/bws-site-assets@main/css/styles.css">
 </head>
 <body>
 <div id="bws-home-root">
@@ -56,7 +56,7 @@
 
 <script>
 (function () {
-  var BASE = 'https://cdn.jsdelivr.net/gh/jaredcordell/bws-site-assets@main/partials/';
+  var BASE = 'https://cdn.jsdelivr.net/gh/murv-source/bws-site-assets@main/partials/';
   function runScripts(host){host.querySelectorAll('script').forEach(function(old){var s=document.createElement('script');for(var i=0;i<old.attributes.length;i++)s.setAttribute(old.attributes[i].name,old.attributes[i].value);s.textContent=old.textContent;old.parentNode.replaceChild(s,old);});}
   function inject(id,file){var host=document.getElementById(id);if(!host)return Promise.resolve();return fetch(BASE+file,{cache:'no-cache'}).then(function(r){return r.text();}).then(function(html){host.innerHTML=html;runScripts(host);});}
   inject('bws-header','header.html').then(function(){return inject('bws-footer','footer.html');});
