@@ -42,7 +42,7 @@ The file name matches the page's URL slug. The `<title>` on line 6 of each file 
 | `/personal-insurance` | `personal-insurance.html` |
 | `/referral-partner` | `referral-partner.html` |
 | `/agents` | `agents.html` |
-| `/customer-connect-expo` | `customer-connect-expo.html` |
+| `/cce` | `cce.html` |
 
 Not pasted anywhere: `partials/`, `css/`, `js/` (load automatically) and `.github/` (automation).
 
