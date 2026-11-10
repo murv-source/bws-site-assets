@@ -43,6 +43,7 @@ The file name matches the page's URL slug. The `<title>` on line 6 of each file 
 | `/referral-partner` | `referral-partner.html` |
 | `/agents` | `agents.html` |
 | `/cce` | `cce.html` |
+| `/business-data-monetization` (draft, pending Nick) | `business-data-monetization.html` |
 
 Not pasted anywhere: `partials/`, `css/`, `js/` (load automatically) and `.github/` (automation).
 
