@@ -62,6 +62,18 @@ Blog pages live in `blog/`. Their SEO title, description and canonical are set i
 
 Post files don't carry their own `<title>` or meta description, and the script doesn't set `document.title`. GHL's SEO settings own those, so there's exactly one of each on the live page. The BlogPosting schema reads its description from that SEO meta. To write a new post, copy any post file and edit only the `POST` and `CONTENT` blocks.
 
+### Policies (GHL website "Policies-Disclosures")
+
+These pages use their own standalone layout (no shared header/footer). Title, description and canonical are set in GHL SEO settings.
+
+| Live page | File to paste |
+|---|---|
+| `/privacy-policy` | `policies/privacy-policy.html` |
+| `/terms-of-service` | `policies/terms-of-service.html` |
+| `/sms-program` | `policies/sms-program.html` |
+
+The published phone number is (844) 443-0482 (confirmed by Nick, Nov 2026). No street address appears anywhere on the site: Big Wolf is a service-area business serving clients nationwide.
+
 Not pasted anywhere: `partials/`, `css/`, `js/` (load automatically) and `.github/` (automation).
 
 When adding a new page: create `<slug>.html` here, add a row to this table, then create the GHL page with the same slug. If it should appear in the menu, add it to `partials/header.html` (desktop and mobile lists).
