@@ -52,6 +52,15 @@ Blog pages live in `blog/`. Their SEO title, description and canonical are set i
 | Live page | File to paste |
 |---|---|
 | `/blog` | `blog/index.html` (to add a post card, edit the `POSTS` list) |
+| `/blog/rd-credit-eligibility` | `blog/rd-credit-eligibility.html` |
+| `/blog/reading-your-statement` | `blog/reading-your-statement.html` |
+| `/blog/unclaimed-settlement-funds` | `blog/unclaimed-settlement-funds.html` |
+| `/blog/health-insurance-2026` | `blog/health-insurance-2026.html` |
+| `/blog/rd-tax-credit-misconceptions` (GHL page: `/7-rd-tax-credit-misconceptions-that-keep-businesses-from-claiming`) | `blog/rd-tax-credit-misconceptions.html` |
+| `/blog/up-what-and-why` (GHL page: `/7-rd-tax-credit-misconceptions-that-keep-businesses-from-claiming-555678`) | `blog/up-what-and-why.html` |
+| `/blog/benefits-payroll-taxes` (GHL page: `/same-employees-same-paychecks-a-different-strategy-how-benefits-and-payroll-taxes-connect`) | `blog/benefits-payroll-taxes.html` |
+
+Post files don't carry their own `<title>` or meta description, and the script doesn't set `document.title`. GHL's SEO settings own those, so there's exactly one of each on the live page. The BlogPosting schema reads its description from that SEO meta. To write a new post, copy any post file and edit only the `POST` and `CONTENT` blocks.
 
 Not pasted anywhere: `partials/`, `css/`, `js/` (load automatically) and `.github/` (automation).
 

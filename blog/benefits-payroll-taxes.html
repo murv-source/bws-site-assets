@@ -1,0 +1,234 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/69cec39bfe4f1c0b67c6dd8c.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/murv-source/bws-site-assets@main/css/styles.css">
+  <style>
+    /* ── Blog-post-only additions — reuses site tokens, no new colors/fonts ── */
+    body.tpl-blog-post .post-hero-img {
+      display: block; width: 100%; max-width: var(--container); margin: 0 auto;
+      aspect-ratio: 16/9; object-fit: cover; border-radius: var(--radius);
+      border: 1px solid var(--line); box-shadow: 0 30px 60px -28px rgba(10,31,68,0.35);
+    }
+    body.tpl-blog-post .post-meta-row {
+      display: flex; gap: 0.9rem; align-items: center; font-size: 0.88rem; color: var(--subdued);
+      justify-content: center; margin-top: 0.4rem;
+    }
+    body.tpl-blog-post .breadcrumb { font-size: 0.85rem; color: var(--subdued); margin-bottom: 1rem; }
+    body.tpl-blog-post .breadcrumb a { color: var(--subdued); text-decoration: none; }
+    body.tpl-blog-post .breadcrumb a:hover { color: var(--ink); }
+    body.tpl-blog-post .prose-wrap { max-width: 720px; margin: 0 auto; }
+    body.tpl-blog-post .prose h2 { font-size: 1.5rem; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; margin: 2.4rem 0 0.9rem; }
+    body.tpl-blog-post .prose ul { margin: 0 0 1.2rem; padding-left: 1.3rem; color: var(--body); }
+    body.tpl-blog-post .prose li { margin-bottom: 0.5rem; line-height: 1.6; }
+    body.tpl-blog-post .prose .inline-cta { margin: 0.5rem 0 1.6rem; }
+    body.tpl-blog-post .author-box {
+      display: flex; gap: 1rem; align-items: center; margin-top: 2.6rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+    }
+    body.tpl-blog-post .author-avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; background: var(--surface); flex-shrink: 0; }
+    body.tpl-blog-post .author-box p { margin: 0; color: var(--subdued); font-size: 0.92rem; }
+    body.tpl-blog-post .author-box strong { color: var(--ink); font-size: 0.98rem; }
+  </style>
+</head>
+<body class="tpl-blog-post">
+<div id="bws-blog-post-root">
+
+  <!-- ══ NAV (shared, injected) ══════════════════════════════ -->
+  <div id="bws-header"></div>
+
+  <!-- ══ POST HEADER ═════════════════════════════════════════ -->
+  <section class="subhero">
+    <div class="container">
+      <p class="breadcrumb"><a href="/">Home</a> / <a href="/blog">Blog</a> / <span id="bc-category"></span></p>
+      <div class="hero-pill" id="post-eyebrow-pill"><span class="hero-pill-dot"></span> <span id="post-eyebrow"></span></div>
+      <h1 id="post-title" style="max-width:22ch;"></h1>
+      <div class="post-meta-row">
+        <span id="post-author"></span><span>·</span>
+        <span id="post-date"></span><span>·</span>
+        <span id="post-readtime"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HERO IMAGE ══════════════════════════════════════════ -->
+  <div class="container" style="padding-bottom: clamp(2rem,4vw,3rem);">
+    <img class="post-hero-img" id="post-hero-img" src="" alt="">
+  </div>
+
+  <!-- ══ ARTICLE BODY ════════════════════════════════════════ -->
+  <section class="band" style="padding-top:0;">
+    <div class="container">
+      <div class="prose-wrap prose" id="post-body"></div>
+    </div>
+  </section>
+
+  <!-- ══ FINAL CTA (reuses the site's existing final-cta band) ═ -->
+  <section class="band final-cta">
+    <div class="container">
+      <span class="h-eyebrow">FIND OUT WHAT YOU'RE OWED</span>
+      <h2>A 15-minute call is usually enough to know if it's worth pursuing.</h2>
+      <p>No cost to check. No obligation to move forward.</p>
+      <div class="btns">
+        <a href="/schedule" class="btn btn-primary">Schedule a Discovery Call <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER (shared, injected) ═══════════════════════════ -->
+  <div id="bws-footer"></div>
+
+</div>
+
+<script>
+(function () {
+
+  /* ============================================================
+     FILL IN YOUR POST HERE
+     ============================================================
+     This is the ONLY part of this file you ever need to touch.
+     Fill in the info below, then write the article as a list of
+     pieces further down, no HTML tags needed anywhere.
+     ============================================================ */
+
+  var POST = {
+    category: "Payroll & Health",
+    title: "Same Employees, Same Paychecks, a Different Strategy: How Benefits and Payroll Taxes Connect",
+    author: "By Nick Yocca",
+    date: "October 21, 2026",
+    readTime: "3 min read",
+    heroImage: "https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/6ad8f2343be7ffaf0d4eef8e.png",
+    heroImageAlt: "Health benefits and payroll taxes connect through federal tax rules — Big Wolf Solutions",
+    authorAvatar: "https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/6a95c20c648f56e7e43550da.png",
+    authorTitle: "Co-Founder & President, Big Wolf Solutions"
+  };
+
+  /* ------------------------------------------------------------
+     Write the article here, piece by piece, top to bottom.
+     Each piece is one of these types:
+
+       { type: "paragraph", text: "..." }          → a normal paragraph
+       { type: "heading", text: "..." }             → a section heading
+       { type: "list", items: ["...", "...", "..."] } → a bulleted list
+       { type: "callout", text: "..." }              → a highlighted tip box
+       { type: "cta", label: "...", link: "..." }    → a blue button
+       { type: "links", items: [{label:"...",url:"..."}, ...] } → a linked source list
+
+     To add a new piece, copy one line and paste it where you want
+     it to appear, then change the text inside the quote marks.
+     ------------------------------------------------------------ */
+
+  var CONTENT = [
+    { type: "paragraph", text: "Most business owners treat health benefits and payroll taxes as two separate line items: one reviewed with a broker at renewal, the other handled by a payroll provider every pay period. But under federal rules, the two are connected. According to the Congressional Budget Office (CBO), what an employer pays toward employees’ health insurance premiums is treated differently from cash wages when it comes to income and payroll taxes." },
+    { type: "paragraph", text: "Here’s how that connection works, and why it’s so easy to overlook." },
+    { type: "heading", text: "Wages and health benefits are both compensation. They aren’t taxed the same way." },
+    { type: "paragraph", text: "Cash wages are subject to income tax withholding and to payroll taxes: Social Security and Medicare, together known as FICA. The employer pays 7.65% on top of what the employee pays. Health benefits are also part of what an employee earns, but the CBO explains that, unlike cash compensation, employer payments toward employees’ health insurance premiums are excluded from income and payroll taxes. For most workers enrolled in employer coverage, the CBO notes that the share they pay toward premiums is excluded as well." },
+    { type: "heading", text: "What that can look like in practice." },
+    { type: "paragraph", text: "Here’s a simplified, hypothetical example. Say an employer pays an employee an extra $1,000 in cash wages. The employer-side payroll tax on that amount would generally be 7.65%, or $76.50 (for wages below the 2026 Social Security wage base of $184,500), and the employee would owe their own payroll and income taxes on it. If the same $1,000 went toward a qualifying health insurance premium instead, it would generally be excluded from those taxes." },
+    { type: "paragraph", text: "That’s an illustration, not a quote. Actual results depend on the type of plan, the state, and each employee’s situation. But it shows why the way a benefits plan is structured is worth understanding, not just what it costs." },
+    { type: "heading", text: "\"Benefits and payroll are handled by different people.\"" },
+    { type: "paragraph", text: "In many businesses, benefits decisions happen once a year at renewal, and the conversation centers on premiums and carriers. Payroll runs on its own schedule, managed by an internal admin, an accountant, or an outside provider. Rarely does anyone look at both together: how the plan is set up, and how contributions actually flow through payroll." },
+    { type: "heading", text: "A different strategy doesn’t have to mean a different team." },
+    { type: "paragraph", text: "Reviewing how benefits and payroll connect doesn’t automatically mean changing your coverage, your carrier, or your people. In many cases it’s a question of how the same compensation is structured and documented. Whether any of this may be an opportunity for a specific business depends on its size, its plan, and its state’s rules, which is why it’s a review and not a promise." },
+    { type: "heading", text: "Questions worth bringing to your next review." },
+    { type: "paragraph", text: "When was the last time your benefits plan and your payroll setup were looked at side by side? Are employee premium contributions handled in a way that both your broker and your payroll provider understand? And who in your business is responsible for connecting the two?" },
+    { type: "paragraph", text: "The tax treatment of health benefits isn’t a loophole. It’s long-standing federal tax policy that the CBO documents in its budget analyses. For many businesses it simply never comes up, because benefits and payroll are rarely discussed in the same room." },
+    { type: "callout", text: "Curious how benefits and payroll connect in your business? Request a free consultation here." },
+    { type: "cta", label: "Request a Free Consultation", link: "https://bigwolfsolutions.net/payroll-health#booking" },
+    { type: "heading", text: "Sources" },
+    { type: "links", items: [
+      { label: "CBO, Reduce Tax Subsidies for Employment-Based Health Insurance (Budget Options)", url: "https://www.cbo.gov/budget-options/58627" },
+      { label: "IRS, Topic no. 751: Social Security and Medicare withholding rates", url: "https://www.irs.gov/taxtopics/tc751" },
+      { label: "QuickBooks, How to calculate payroll taxes (2026 federal limits)", url: "https://quickbooks.intuit.com/r/payroll/calculate-payroll-taxes/" },
+    ]},
+    { type: "paragraph", text: "This article is for educational purposes only and is not tax, legal, or benefits advice. Results vary, and any strategy depends on your specific business and plan. Please consult a qualified tax professional before making changes." },
+  ];
+
+  /* ============================================================
+     Nothing below this line needs to be edited by Laila.
+     ============================================================ */
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  var root = document.getElementById('bws-blog-post-root');
+  root.querySelector('#bc-category').textContent = POST.category;
+  root.querySelector('#post-eyebrow').textContent = POST.category;
+  root.querySelector('#post-title').textContent = POST.title;
+  root.querySelector('#post-author').textContent = POST.author;
+  root.querySelector('#post-date').textContent = POST.date;
+  root.querySelector('#post-readtime').textContent = POST.readTime;
+  var heroImg = root.querySelector('#post-hero-img');
+  heroImg.src = POST.heroImage;
+  heroImg.alt = POST.heroImageAlt;
+
+  var bodyEl = root.querySelector('#post-body');
+  var html = CONTENT.map(function (block) {
+    if (block.type === 'paragraph') return '<p>' + escapeHtml(block.text) + '</p>';
+    if (block.type === 'heading') return '<h2>' + escapeHtml(block.text) + '</h2>';
+    if (block.type === 'list') return '<ul>' + block.items.map(function (i) { return '<li>' + escapeHtml(i) + '</li>'; }).join('') + '</ul>';
+    if (block.type === 'callout') return '<div class="callout">' + escapeHtml(block.text) + '</div>';
+    if (block.type === 'cta') return '<a href="' + escapeHtml(block.link) + '" class="btn btn-primary inline-cta">' + escapeHtml(block.label) + ' <span class="arr">→</span></a>';
+    if (block.type === 'links') return '<ul>' + block.items.map(function (i) { return '<li><a href="' + escapeHtml(i.url) + '" target="_blank" rel="noopener">' + escapeHtml(i.label) + '</a></li>'; }).join('') + '</ul>';
+    return '';
+  }).join('');
+
+  html += '<div class="author-box">' +
+    '<img class="author-avatar" src="' + escapeHtml(POST.authorAvatar) + '" alt="' + escapeHtml(POST.author) + '">' +
+    '<p><strong>' + escapeHtml(POST.author.replace(/^By /, '')) + '</strong><br>' + escapeHtml(POST.authorTitle) + '</p>' +
+    '</div>';
+
+  bodyEl.innerHTML = html;
+
+  /* ------------------------------------------------------------
+     Structured data (SEO / AEO) — auto-built from POST/CONTENT above.
+     ------------------------------------------------------------ */
+  var firstParagraph = CONTENT.filter(function (b) { return b.type === 'paragraph'; })[0];
+  // Schema description: the page's SEO description (set in GHL SEO settings), else the first paragraph.
+  var seoDesc = document.querySelector('meta[name="description"]');
+  var description = (seoDesc && seoDesc.content) ? seoDesc.content : (firstParagraph ? firstParagraph.text : POST.title);
+
+  var parsedDate = new Date(POST.date);
+  var dateISO = isNaN(parsedDate.getTime()) ? '' : parsedDate.toISOString().slice(0, 10);
+
+  var schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": POST.title,
+    "description": description,
+    "image": POST.heroImage,
+    "author": { "@type": "Person", "name": POST.author.replace(/^By /, ''), "jobTitle": POST.authorTitle },
+    "publisher": {
+      "@type": "Organization", "name": "Big Wolf Solutions", "url": "https://www.bigwolfsolutions.net",
+      "logo": { "@type": "ImageObject", "url": "https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/69cec3ab75502063bb5a706a.png" }
+    },
+    "articleSection": POST.category,
+    "mainEntityOfPage": { "@type": "WebPage", "@id": window.location.href }
+  };
+  if (dateISO) { schema.datePublished = dateISO; schema.dateModified = dateISO; }
+
+  var schemaScript = document.createElement('script');
+  schemaScript.type = 'application/ld+json';
+  schemaScript.textContent = JSON.stringify(schema);
+  document.head.appendChild(schemaScript);
+})();
+</script>
+
+<!-- ══ Shared header/footer injection (identical to every other page) ══ -->
+<script>
+(function () {
+  var BASE = 'https://cdn.jsdelivr.net/gh/murv-source/bws-site-assets@main/partials/';
+  function runScripts(host){host.querySelectorAll('script').forEach(function(old){var s=document.createElement('script');for(var i=0;i<old.attributes.length;i++)s.setAttribute(old.attributes[i].name,old.attributes[i].value);s.textContent=old.textContent;old.parentNode.replaceChild(s,old);});}
+  function inject(id,file){var host=document.getElementById(id);if(!host)return Promise.resolve();return fetch(BASE+file,{cache:'no-cache'}).then(function(r){return r.text();}).then(function(html){host.innerHTML=html;runScripts(host);});}
+  inject('bws-header','header.html').then(function(){return inject('bws-footer','footer.html');});
+})();
+</script>
+</body>
+</html>
