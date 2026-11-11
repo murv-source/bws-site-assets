@@ -75,3 +75,51 @@
   });
   observer.observe(footer);
 })();
+
+/* Sitewide Organization schema (JSON-LD). Added Nov 11, 2026. Service-area business, US-wide, no street address. */
+(function() {
+  if (document.getElementById('bws-org-schema')) return;
+  var base = 'https://bigwolfsolutions.net/';
+  var services = [
+    ['R&D Tax Credits', 'r-d-tax-credits'],
+    ['Settlement Recovery', 'settlement-recovery'],
+    ['Unclaimed Property Recovery', 'unclaimed-property'],
+    ['Business Data Monetization', 'business-data-monetization'],
+    ['Merchant Services', 'merchant-services'],
+    ['Supplemental Health', 'supplemental-health'],
+    ['Payroll & Health', 'payroll-health'],
+    ['Bookkeeping', 'bookkeeping'],
+    ['Business in a Box', 'business-in-a-box'],
+    ['Commercial Insurance', 'commercial-insurance'],
+    ['Personal & Farm Insurance', 'personal-insurance']
+  ];
+  var data = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': base + '#organization',
+    'name': 'Big Wolf Solutions',
+    'url': base,
+    'logo': 'https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/69cec3ab75502063bb5a706a.png',
+    'image': 'https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/69cec3ab75502063bb5a706a.png',
+    'description': 'Big Wolf Solutions helps US businesses recover hidden revenue and cut costs: R&D tax credits, settlement recovery, unclaimed property recovery, merchant processing savings and employee benefits funded by payroll tax savings.',
+    'telephone': '+1-844-443-0482',
+    'email': 'nick@bigwolfsolutions.com',
+    'areaServed': { '@type': 'Country', 'name': 'United States' },
+    'founder': [
+      { '@type': 'Person', 'name': 'Nick Yocca', 'jobTitle': 'Co-Founder & President' },
+      { '@type': 'Person', 'name': 'Ali Yocca', 'jobTitle': 'Co-Founder' }
+    ],
+    'hasOfferCatalog': {
+      '@type': 'OfferCatalog',
+      'name': 'Services',
+      'itemListElement': services.map(function(s) {
+        return { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': s[0], 'url': base + s[1] } };
+      })
+    }
+  };
+  var el = document.createElement('script');
+  el.type = 'application/ld+json';
+  el.id = 'bws-org-schema';
+  el.text = JSON.stringify(data);
+  (document.head || document.documentElement).appendChild(el);
+})();
