@@ -45,6 +45,14 @@ The file name matches the page's URL slug. The `<title>` on line 6 of each file 
 | `/cce` | `cce.html` |
 | `/business-data-monetization` (draft, pending Nick) | `business-data-monetization.html` |
 
+### Blog
+
+Blog pages live in `blog/`. Their SEO title, description and canonical are set in each GHL page's SEO settings, not in the file.
+
+| Live page | File to paste |
+|---|---|
+| `/blog` | `blog/index.html` (to add a post card, edit the `POSTS` list) |
+
 Not pasted anywhere: `partials/`, `css/`, `js/` (load automatically) and `.github/` (automation).
 
 When adding a new page: create `<slug>.html` here, add a row to this table, then create the GHL page with the same slug. If it should appear in the menu, add it to `partials/header.html` (desktop and mobile lists).

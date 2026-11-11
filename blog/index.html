@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title, description and canonical live in the GHL page SEO settings, not here (avoids duplicate tags). -->
+  <link rel="icon" href="https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/69cec39bfe4f1c0b67c6dd8c.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/murv-source/bws-site-assets@main/css/styles.css">
+  <style>
+    /* ── Blog-only additions — scoped to this page, reuses the site's
+       existing tokens (--ink, --blue, --line, --surface, --radius, etc.)
+       so nothing here should ever need its own color/font values. ── */
+    body.tpl-blog .filter-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.75rem; }
+    body.tpl-blog .filter-btn {
+      font-family: var(--font); font-size: 0.88rem; font-weight: 600;
+      padding: 9px 18px; min-height: 40px; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--white); color: var(--subdued);
+      cursor: pointer; transition: all 0.15s ease;
+    }
+    body.tpl-blog .filter-btn:hover { border-color: var(--blue); color: var(--ink); }
+    body.tpl-blog .filter-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+    body.tpl-blog #post-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 0.5rem;
+    }
+    @media (max-width: 980px) { body.tpl-blog #post-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { body.tpl-blog #post-grid { grid-template-columns: 1fr; } }
+
+    body.tpl-blog .post-card {
+      display: flex; flex-direction: column; text-decoration: none;
+      background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+      overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    body.tpl-blog .post-card:hover {
+      transform: translateY(-4px); box-shadow: 0 24px 50px -24px rgba(10,31,68,0.28);
+      border-color: rgba(30,107,255,0.35);
+    }
+    body.tpl-blog .post-card-img { width: 100%; aspect-ratio: 8/5; object-fit: cover; display: block; background: var(--surface); }
+    body.tpl-blog .post-card-body { padding: 1.35rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+    body.tpl-blog .post-card-tag { font-size: 0.76rem; font-weight: 700; color: var(--blue); letter-spacing: 0.02em; text-transform: uppercase; }
+    body.tpl-blog .post-card h3 { font-size: 1.14rem; font-weight: 700; color: var(--ink); letter-spacing: -0.015em; margin: 0.55rem 0 0.6rem; line-height: 1.3; }
+    body.tpl-blog .post-card p { font-size: 0.92rem; color: var(--body); line-height: 1.55; flex: 1; margin: 0; }
+    body.tpl-blog .post-card-meta {
+      display: flex; justify-content: space-between; align-items: center; margin-top: 1.1rem;
+      padding-top: 0.9rem; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--subdued);
+    }
+    body.tpl-blog #no-results { display: none; margin-top: 2rem; color: var(--subdued); }
+  </style>
+</head>
+<body class="tpl-blog">
+<div id="bws-blog-index-root">
+
+  <!-- ══ NAV (shared, injected) ══════════════════════════════ -->
+  <div id="bws-header"></div>
+
+  <!-- ══ HERO ════════════════════════════════════════════════ -->
+  <section class="subhero" style="text-align:left;">
+    <div class="container">
+      <div class="hero-pill"><span class="hero-pill-dot"></span> Big Wolf Solutions Blog</div>
+      <h1 style="max-width:20ch;">Straight answers on R&amp;D credits, merchant costs, and recovered funds.</h1>
+      <p class="lead" style="margin:0;">Practical guidance from the Big Wolf Solutions team, no jargon, no sales pitch, just what business owners need to know to keep more of what they've earned.</p>
+
+      <!-- ✏️ EDIT: Category filter buttons. data-filter must match a post-card-tag exactly, or "all". -->
+      <div class="filter-row" id="filter-row" role="group" aria-label="Filter posts by category"></div>
+    </div>
+  </section>
+
+  <!-- ══ POST GRID ═══════════════════════════════════════════ -->
+  <section class="band">
+    <div class="container">
+      <div id="post-grid"></div>
+      <p id="no-results">No posts in this category yet, check back soon.</p>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER (shared, injected) ═══════════════════════════ -->
+  <div id="bws-footer"></div>
+
+</div>
+
+<script>
+(function () {
+
+  /* ============================================================
+     ADD YOUR POSTS HERE
+     ============================================================
+     This is the ONLY part of this file you ever need to edit.
+
+     To add a new post: copy one whole block below (from the { to
+     the matching }), paste it right under this comment (newest
+     posts go at the TOP of the list), then change the text between
+     the quote marks for each line. Keep the quote marks and commas
+     exactly as they are, just change the words inside the quotes.
+
+     category   → must be exactly one of:
+                  "R&D Tax Credits", "Merchant Services",
+                  "Settlement Recovery", "CHAMP Health Plan",
+                  "Business Insights",
+                  "Unclaimed Property", "Payroll & Health"
+     title      → the post headline, shown on the card
+     excerpt    → one or two sentence teaser, shown on the card
+     date       → written however you'd like it to display, e.g. "August 28, 2026"
+     readTime   → e.g. "4 min read"
+     image      → the image link from GHL Media Storage (upload the
+                  image there first, then copy its link here)
+     link       → the web address of the full post page, e.g. "/blog/my-post-title"
+     ============================================================ */
+
+  var POSTS = [
+    {
+      category: "Payroll & Health",
+      title: "Same Employees, Same Paychecks, a Different Strategy: How Benefits and Payroll Taxes Connect",
+      excerpt: "Health benefits and cash wages are both compensation, but federal rules treat them differently. Here’s how benefits and payroll connect, and why it’s so easy to overlook.",
+      date: "October 21, 2026",
+      readTime: "3 min read",
+      image: "https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/6ad8f2343be7ffaf0d4eef8e.png",
+      link: "/blog/benefits-payroll-taxes"
+    },
+    {
+      category: "Unclaimed Property",
+      title: "Unclaimed Property: What it is, and why most businesses never check.",
+      excerpt: "Unclaimed property is money and assets that already belong to a business. Here’s what it is, why it slips past owners, and how to find out what’s waiting.",
+      date: "October 2, 2026",
+      readTime: "3 min read",
+      image: "https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/6ac023f92c503e697d5d84e2.png",
+      link: "/blog/up-what-and-why"
+    },
+    {
+      category: "R&D Tax Credits",
+      title: "7 R&D Tax Credit Misconceptions That Keep Businesses From Claiming",
+      excerpt: "Many businesses assume the credit applies only to labs, big companies, or successful projects. The rules are broader than most owners expect, and the work can qualify in more places than they think.",
+      date: "September 17, 2026",
+      readTime: "6 min read",
+      image: "https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/6aac82f4de8ed1c29f442af2.png",
+      link: "/blog/rd-tax-credit-misconceptions"
+    },
+    {
+      category: "CHAMP Health Plan",
+      title: "Corporate Health Insurance Costs Are Climbing Again in 2026. Here's What Small Businesses Can Do About It.",
+      excerpt: "Small group premiums are up a median 11% this year. Here's what's driving it, and a different way to fund better benefits without a bigger budget line.",
+      date: "August 28, 2026",
+      readTime: "5 min read",
+      image: "https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/6a95cc572abe62a97cf5a7e0.png",
+      link: "/blog/health-insurance-2026"
+    },
+    {
+      category: "R&D Tax Credits",
+      title: "5 Signs Your Business Qualifies for the R&D Tax Credit (and Doesn't Know It)",
+      excerpt: "Most business owners assume this credit is only for labs and tech startups. Here's what actually counts.",
+      date: "August 21, 2026",
+      readTime: "4 min read",
+      image: "https://d8j0ntlcm91z4.cloudfront.net/user_38oNqWKMwdpAnotKzjdcYuVu3hK/hf_20260831_174450_e8cb8f48-89d4-4296-8f07-6438822b5231.png",
+      link: "/blog/rd-credit-eligibility"
+    },
+    {
+      category: "Merchant Services",
+      title: "Why Your Processing Statement Is Confusing on Purpose",
+      excerpt: "Interchange, assessment fees, PCI compliance charges, here's what's actually on your statement.",
+      date: "August 14, 2026",
+      readTime: "5 min read",
+      image: "https://d8j0ntlcm91z4.cloudfront.net/user_38oNqWKMwdpAnotKzjdcYuVu3hK/hf_20260831_174348_45b5bcac-3b7f-4a1d-ae5e-9899a76d187d.png",
+      link: "/blog/reading-your-statement"
+    },
+    {
+      category: "Settlement Recovery",
+      title: "Class Action Money You Never Claimed Is Still Sitting There",
+      excerpt: "If your business bought merchant services or processing between 2004–2019, you may be owed money.",
+      date: "August 7, 2026",
+      readTime: "3 min read",
+      image: "https://d8j0ntlcm91z4.cloudfront.net/user_38oNqWKMwdpAnotKzjdcYuVu3hK/hf_20260831_174355_a35a7346-0d95-4bb6-8e4c-f67d45047be9.png",
+      link: "/blog/unclaimed-settlement-funds"
+    }
+  ];
+
+  /* ============================================================
+     Nothing below this line needs to be edited by Laila.
+     ============================================================ */
+
+  var CATEGORIES = ["All Posts", "R&D Tax Credits", "Merchant Services", "Settlement Recovery", "CHAMP Health Plan", "Business Insights", "Unclaimed Property", "Payroll & Health"];
+  var root = document.getElementById('bws-blog-index-root');
+  var filterRow = root.querySelector('#filter-row');
+  var grid = root.querySelector('#post-grid');
+  var noResults = root.querySelector('#no-results');
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function renderFilters() {
+    filterRow.innerHTML = CATEGORIES.map(function (cat, i) {
+      var value = cat === "All Posts" ? "all" : cat;
+      return '<button class="filter-btn' + (i === 0 ? ' active' : '') + '" data-filter="' + escapeHtml(value) + '">' + escapeHtml(cat) + '</button>';
+    }).join('');
+  }
+
+  function renderCards(filter) {
+    var visible = POSTS.filter(function (p) { return filter === 'all' || p.category === filter; });
+    grid.innerHTML = visible.map(function (p) {
+      return '' +
+        '<a class="post-card" data-category="' + escapeHtml(p.category) + '" href="' + escapeHtml(p.link) + '">' +
+          '<img class="post-card-img" src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.title) + '" loading="lazy">' +
+          '<div class="post-card-body">' +
+            '<span class="post-card-tag">' + escapeHtml(p.category) + '</span>' +
+            '<h3>' + escapeHtml(p.title) + '</h3>' +
+            '<p>' + escapeHtml(p.excerpt) + '</p>' +
+            '<div class="post-card-meta">' +
+              '<span>' + escapeHtml(p.date) + ' · ' + escapeHtml(p.readTime) + '</span>' +
+              '<span class="link-arrow">Read <span class="arr">→</span></span>' +
+            '</div>' +
+          '</div>' +
+        '</a>';
+    }).join('');
+    noResults.style.display = visible.length === 0 ? 'block' : 'none';
+  }
+
+  renderFilters();
+  renderCards('all');
+
+  filterRow.addEventListener('click', function (e) {
+    var btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    filterRow.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    renderCards(btn.getAttribute('data-filter'));
+  });
+
+})();
+</script>
+
+<!-- ══ Shared header/footer injection (identical to every other page) ══ -->
+<script>
+(function () {
+  var BASE = 'https://cdn.jsdelivr.net/gh/murv-source/bws-site-assets@main/partials/';
+  function runScripts(host){host.querySelectorAll('script').forEach(function(old){var s=document.createElement('script');for(var i=0;i<old.attributes.length;i++)s.setAttribute(old.attributes[i].name,old.attributes[i].value);s.textContent=old.textContent;old.parentNode.replaceChild(s,old);});}
+  function inject(id,file){var host=document.getElementById(id);if(!host)return Promise.resolve();return fetch(BASE+file,{cache:'no-cache'}).then(function(r){return r.text();}).then(function(html){host.innerHTML=html;runScripts(host);});}
+  inject('bws-header','header.html').then(function(){return inject('bws-footer','footer.html');});
+})();
+</script>
+</body>
+</html>
