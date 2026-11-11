@@ -22,7 +22,7 @@ To copy a file: open it on GitHub, click the **Copy raw file** icon (top right o
 
 ## Page → file map
 
-The file name matches the page's URL slug. The `<title>` on line 6 of each file matches the live page's browser tab.
+The file name matches the page's URL slug. Page files don't carry their own `<title>` or meta description: each GHL page's SEO settings own the title, description and canonical, so the live page has exactly one of each. Exception: `cce.html` keeps its own title and description because the /cce page has no GHL SEO settings filled in.
 
 | Live page | File to paste |
 |---|---|
