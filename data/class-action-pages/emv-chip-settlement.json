@@ -1,0 +1,47 @@
+{
+  "case_name": "EMV Chips",
+  "slug": "emv-chip-settlement",
+  "breadcrumb": "EMV Chip Settlement",
+  "h1": "EMV Chip Lawsuit Settlement: Can Your Business File a Claim?",
+  "answer": "Visa, Mastercard, American Express and Discover agreed to settlements totaling $231.7 million with merchants over the October 2015 EMV chip \"fraud liability shift.\" Merchants that absorbed unreimbursed fraud chargebacks under that rule between October 1, 2015 and September 30, 2017 are in the class. The settlement has preliminary approval, and claims open once the court sets the filing process.",
+  "updated": "2026-11-11",
+  "who": "Merchants with unreimbursed EMV fraud liability shift chargebacks",
+  "period": "October 1, 2015 to September 30, 2017",
+  "fund": "$231.7 million (Visa and Mastercard about $199.5 million; American Express and Discover $32.2 million)",
+  "defendants": "Visa, Mastercard, American Express, Discover",
+  "status_text": "Preliminary approval. Filing deadline not yet announced",
+  "sections": [
+    {"heading": "What the EMV chip lawsuit was about",
+     "paragraphs": [
+       "In October 2015 the card networks moved responsibility for certain counterfeit card fraud from the banks that issue cards to merchants whose terminals weren't ready to read chip cards. Merchants sued, claiming the networks agreed to adopt the same liability shift on the same date in the same way, at a time when many businesses couldn't get chip terminals installed and certified.",
+       "The networks settled without admitting wrongdoing. The liability shift itself is still in place today; the settlement pays merchants for chargebacks they absorbed during the first two years."]},
+    {"heading": "Who may qualify",
+     "list": [
+       "Any US merchant that accepted Visa, Mastercard, American Express or Discover cards between October 2015 and September 2017",
+       "Who received one or more chargebacks under the fraud liability shift during that window",
+       "That were not reimbursed by your processor or anyone else",
+       "Retailers, restaurants, gas stations, convenience stores and other card-present businesses were the most affected"]},
+    {"heading": "What records help",
+     "list": [
+       "Merchant processing statements from October 2015 through September 2017",
+       "Chargeback reports or notices from your processor showing fraud or counterfeit reason codes",
+       "Any settlement notice you received in the mail or by email"],
+     "paragraphs": ["Don't have old statements? Your processor can often pull chargeback history, and the claims administrator may have records of its own. We help you work out what's available."]},
+    {"heading": "How Big Wolf Solutions helps",
+     "paragraphs": ["We check whether your business fits the class, help gather the chargeback records, and file the claim through our claims recovery partner once the filing window opens. There's nothing upfront: our fee comes only from money actually recovered for you."]}
+  ],
+  "faqs": [
+    {"q": "Is the EMV chip settlement accepting claims yet?",
+     "a": "The settlement has preliminary court approval, but the claim filing deadline hasn't been announced. Class members are notified when the claim form opens. We track the case and can file for you as soon as it does."},
+    {"q": "My terminal was chip-ready. Can I still qualify?",
+     "a": "Possibly. Some merchants bought chip terminals in time but couldn't get them certified before the October 2015 date, and still received liability shift chargebacks. What matters is whether you absorbed an unreimbursed fraud liability shift chargeback during the class period."},
+    {"q": "Is this the same as the Visa and Mastercard interchange fee settlement?",
+     "a": "No. The interchange fee (Payment Card) settlement covered card processing fees, and its claim deadline passed in February 2025. The EMV chip settlement is a separate case about fraud chargebacks."},
+    {"q": "Does filing a claim affect my merchant account?",
+     "a": "Filing a claim isn't a lawsuit against your processor. Claims are reviewed by a court-supervised administrator, and the card networks have already agreed to pay into the settlement fund."}
+  ],
+  "sources": [
+    {"title": "Class counsel overview (Robbins LLP)", "url": "https://robbinsllp.com/credit-card-chip-settlement/"},
+    {"title": "American Banker: Visa, Mastercard settle merchant suit", "url": "https://www.americanbanker.com/payments/news/visa-mastercard-settle-merchant-suit-for-nearly-200m"}
+  ]
+}

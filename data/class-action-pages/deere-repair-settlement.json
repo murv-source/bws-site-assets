@@ -1,0 +1,46 @@
+{
+  "case_name": "Deere Repair Services",
+  "slug": "deere-repair-settlement",
+  "breadcrumb": "Deere Repair Settlement",
+  "h1": "John Deere Repair Settlement: Who Can Claim Before December 31?",
+  "answer": "Deere & Company agreed to a $99 million settlement of the \"right to repair\" antitrust case. Farms and businesses that paid Deere or an authorized Deere dealer in the US for repair services on large Deere agricultural equipment between January 10, 2018 and May 18, 2026 may qualify. The claim deadline is December 31, 2026.",
+  "updated": "2026-11-11",
+  "who": "Buyers of repair services on large Deere ag equipment from Deere or its authorized US dealers (government entities excluded)",
+  "period": "January 10, 2018 to May 18, 2026",
+  "fund": "$99 million, plus changes to repair tool access",
+  "defendants": "Deere & Company (John Deere) and its authorized dealers",
+  "sections": [
+    {"heading": "What the Deere right to repair lawsuit was about",
+     "paragraphs": [
+       "Lawsuits filed starting in 2022 claimed Deere withheld the diagnostic software and repair tools needed to fix its newer, computer-controlled equipment, which pushed owners to authorized dealers and raised repair prices. Deere denies the claims and settled with no finding of wrongdoing.",
+       "Besides the cash fund, the settlement includes commitments on access to repair tools and information. A final approval hearing is scheduled for January 19, 2027."]},
+    {"heading": "Who may qualify",
+     "list": [
+       "Farms, ranches, custom operators and other businesses (and individuals) in the US",
+       "That paid Deere or an authorized Deere dealer for diagnosis, maintenance or repair",
+       "On large Deere agricultural equipment: 6000, 7000, 8000 and 9000 Series tractors, combines, cotton pickers and strippers, sugarcane harvesters, sprayers, planters and other seeding, tillage and application equipment",
+       "Between January 10, 2018 and May 18, 2026"]},
+    {"heading": "What records help",
+     "list": [
+       "Dealer repair invoices or work orders from 2018 to 2026",
+       "Your dealer account history (dealers can usually reprint invoices)",
+       "A list of the Deere equipment you owned or leased during that time"],
+     "paragraphs": ["Payments are based on the repair labor hours on your claim, so the more invoice detail you have, the better your claim."]},
+    {"heading": "How Big Wolf Solutions helps",
+     "paragraphs": ["We confirm your equipment and repair history fit the class, help collect dealer invoices, and file before the December 31 deadline through our claims recovery partner. Nothing upfront: our fee comes only from money actually recovered for you."]}
+  ],
+  "faqs": [
+    {"q": "What is the deadline for the John Deere repair settlement?",
+     "a": "Claims must be filed by December 31, 2026. Late claims are generally not accepted."},
+    {"q": "Does it matter that I don't know my total repair hours?",
+     "a": "Payments are based on the labor hours spent on Deere repair services, which many owners don't track. Dealers can usually reprint past invoices, and we help pull together what's needed."},
+    {"q": "Do I qualify if I only used an independent repair shop?",
+     "a": "The class covers repair services bought from Deere or its authorized dealers. Repairs done only by independent shops aren't part of this claim."},
+    {"q": "What if I want to keep my own right to sue Deere?",
+     "a": "Class members could exclude themselves instead of filing a claim, but that choice has its own deadline and means no payment from this settlement. Talk to a lawyer if you're considering it."}
+  ],
+  "sources": [
+    {"title": "Official settlement website", "url": "https://www.deererepairsettlement.com"},
+    {"title": "States Newsroom: Farmers have until Dec. 31 to file claims", "url": "https://www.newsfromthestates.com/article/farmers-have-until-dec-31-file-claims-deere-settlement-or-decide-hold-out"}
+  ]
+}
