@@ -43,7 +43,8 @@ The file name matches the page's URL slug. Page files don't carry their own `<ti
 | `/referral-partner` | `referral-partner.html` |
 | `/agents` | `agents.html` |
 | `/cce` | `cce.html` |
-| `/business-data-monetization` (draft, pending Nick) | `business-data-monetization.html` |
+| `/business-data-monetization` | `business-data-monetization.html` |
+| `/page-not-found` (set as the domain's 404 page in GHL) | `404.html` (carries its own `noindex`; don't add a second robots tag in GHL) |
 
 ### Blog
 
