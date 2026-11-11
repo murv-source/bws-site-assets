@@ -1,0 +1,29 @@
+<!--
+  Big Wolf Solutions — Business Data Monetization Inquiry form header (text only)
+  Lives in the GHL Custom HTML element ABOVE the form fields.
+  Styles only its own .bws-form-* markup; GHL fields/button are styled in the form builder.
+  Brand tokens: ink #0A1F44 · body #51607A · subdued #5B6B85 · blue #1E6BFF · line #E7ECF4
+  Code Author: Murv Berry, Happy Path Marketing · happypathmarketing.com
+-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  .bws-form-header{font-family:Inter,system-ui,sans-serif;padding:0 0 24px;margin:0 0 28px;border-bottom:1.25px solid #E7ECF4}
+  .bws-form-eyebrow{display:inline-block;font-size:12.8px;font-weight:600;letter-spacing:.02em;color:#1E6BFF;margin:0 0 14px}
+  .bws-form-title{font-size:32px;line-height:1.12;font-weight:600;letter-spacing:-.025em;color:#0A1F44;margin:0 0 13.6px}
+  .bws-form-title span{color:#5B6B85}
+  .bws-form-sub{font-size:16.32px;line-height:1.65;color:#51607A;margin:0}
+  .bws-form-promises{list-style:none;display:flex;flex-wrap:wrap;gap:11px 25px;margin:22px 0 0;padding:0}
+  .bws-form-promise{display:flex;align-items:center;gap:8px;font-size:14.72px;font-weight:500;color:#51607A}
+  .bws-form-promise svg{width:14px;height:14px;flex-shrink:0}
+  @media (max-width:520px){.bws-form-title{font-size:26px}}
+</style>
+<div class="bws-form-header">
+  <span class="bws-form-eyebrow">Free consultation</span>
+  <h2 class="bws-form-title">See what your business data <span>could be worth.</span></h2>
+  <p class="bws-form-sub">Tell us a little about your business and we'll reach out to schedule your consultation. It only takes two minutes.</p>
+  <ul class="bws-form-promises">
+    <li class="bws-form-promise"><svg viewBox="0 0 24 24" fill="none" stroke="#1E6BFF" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>No upfront fees</li>
+    <li class="bws-form-promise"><svg viewBox="0 0 24 24" fill="none" stroke="#1E6BFF" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>You approve every offer</li>
+    <li class="bws-form-promise"><svg viewBox="0 0 24 24" fill="none" stroke="#1E6BFF" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>Your data stays yours</li>
+  </ul>
+</div>
