@@ -12,6 +12,9 @@
 
 - [R&D Tax Credits](https://bigwolfsolutions.net/r-d-tax-credits): Claim federal and state R&D tax credits for work a business already does. Free qualification review, IRS-compliant study, no upfront cost.
 - [Settlement Recovery](https://bigwolfsolutions.net/settlement-recovery): Finds and files a business's claims in class action and antitrust settlements nationwide. No recovery, no fee.
+- [Active Class Action Settlements](https://bigwolfsolutions.net/class-action-settlements): Searchable list of active class action and antitrust settlements US businesses may be able to claim, grouped by industry, with FAQs on direct, indirect and TPP claims.
+- [EMV Chip Settlement](https://bigwolfsolutions.net/emv-chip-settlement): Who can claim in the $231.7 million EMV chip fraud liability shift settlement for merchants.
+- [John Deere Repair Settlement](https://bigwolfsolutions.net/deere-repair-settlement): Who can claim in the $99 million Deere repair services settlement; claim deadline December 31, 2026.
 - [Unclaimed Property](https://bigwolfsolutions.net/unclaimed-property): Finds and recovers money owed to a business that is held by state unclaimed property offices and agencies, with no upfront cost.
 - [Business Data Monetization](https://bigwolfsolutions.net/business-data-monetization): Helps businesses explore licensing eligible business data to AI companies, with no upfront fees. The business approves every offer.
 

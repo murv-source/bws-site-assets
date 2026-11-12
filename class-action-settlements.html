@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/69cec39bfe4f1c0b67c6dd8c.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/murv-source/bws-site-assets@main/css/styles.css">
+  <style>
+    /* ── Class action hub only. Reuses site tokens, no new colors/fonts. ── */
+    .ca-tools { display:flex; flex-wrap:wrap; gap:0.75rem; margin:0 auto 1.2rem; max-width:var(--container); }
+    .ca-tools input, .ca-tools select { font:inherit; font-size:0.95rem; padding:11px 14px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; color:var(--ink); }
+    .ca-tools input { flex:1 1 280px; }
+    .ca-tools select { flex:0 1 320px; }
+    .ca-meta { font-size:0.88rem; color:var(--subdued); margin-bottom:0.8rem; }
+    .ca-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); background:#fff; }
+    table.ca-table { width:100%; border-collapse:collapse; font-size:0.94rem; }
+    .ca-table thead th { text-align:left; font-size:0.78rem; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; color:var(--subdued); padding:12px 16px; border-bottom:1px solid var(--line); background:var(--surface); }
+    .ca-table td { padding:12px 16px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--body); }
+    .ca-table td:first-child { font-weight:600; color:var(--ink); }
+    .ca-table td a { color:var(--blue); text-decoration:none; font-weight:600; }
+    .ca-table td a:hover { text-decoration:underline; }
+    .ca-table tr.ca-group th { text-align:left; padding:14px 16px 8px; font-size:0.86rem; font-weight:700; color:var(--ink); background:var(--white); border-bottom:1px solid var(--line); }
+    .ca-table tr:target td { background:var(--blue-soft); }
+    .ca-st { display:inline-block; font-size:0.68rem; font-weight:700; padding:2px 8px; border-radius:8px; margin-right:0.4rem; }
+    .ca-st.open { color:var(--green); background:var(--green-bg); }
+    .ca-st.confirm { color:var(--blue); background:var(--blue-soft); }
+    .ca-empty { display:none; padding:1.4rem 16px; color:var(--subdued); }
+    .ca-ind { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; max-width:var(--container); margin:0 auto; }
+    .ca-ind div { border:1px solid var(--line); border-radius:var(--radius); padding:1.1rem 1.2rem; background:#fff; }
+    .ca-ind strong { display:block; color:var(--ink); margin-bottom:0.3rem; }
+    .ca-ind p { font-size:0.92rem; line-height:1.55; margin:0; }
+    .ca-disclaimer { max-width:780px; margin:1.6rem auto 0; font-size:0.84rem; line-height:1.6; color:var(--subdued); text-align:center; }
+  </style>
+<!-- SCHEMA:START -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What is a class action settlement?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "When a company is sued on behalf of a large group of people or businesses that were harmed in the same way, the case often ends in a settlement. The company pays into a fund, and members of the group file claims to receive their share. Money that isn't claimed doesn't come to you, so filing is what counts."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can a business file a claim, or are these only for consumers?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Many of the largest settlements are for businesses. Price-fixing (antitrust) cases in particular pay companies that overpaid for products or services such as card processing, food products, building materials, equipment and advertising."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What do \"Direct\" and \"Indirect\" mean in a case name?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A direct purchaser bought straight from the companies that were sued. An indirect purchaser bought the same product through a distributor, wholesaler or reseller. \"Commercial Indirect\" and \"Commercial Food Preparer\" cases are for businesses such as restaurants, caterers and contractors that bought through distributors. Each group is usually paid from its own fund."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does \"TPP\" mean?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "TPP stands for third-party payor: an organization that paid for prescriptions or medical services on behalf of others, such as a self-funded employer health plan, a union health and welfare fund or an insurer. If your company self-funds its employees' health benefits, you may qualify for TPP settlements."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which industries see the most class action settlements?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Merchants that accept cards, restaurants and food buyers, construction and trades, employers with self-funded health plans, healthcare providers, transportation and automotive businesses, advertisers, and companies that buy equipment, electronics or financial products at scale."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I know if my business qualifies?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Generally, your business bought the product or service during the dates the case covers (the class period), in the area the case covers. We review your business against the open cases and tell you which ones fit."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What records do I need?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Usually purchase records: invoices, vendor statements, accounts payable reports, or merchant processing statements for card-fee cases. TPP claims use prescription or claims data. Some settlements estimate your share from records the administrator already has, so missing paperwork doesn't always rule you out."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is there a deadline to file?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Each settlement has its own claim deadline, and late claims are usually rejected. That's why we track every open case and its deadline."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Am I suing anyone by filing a claim?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Filing a claim in a settled case isn't filing a lawsuit. You don't go to court or testify. Claims are reviewed by a court-supervised claims administrator."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What does it cost?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Nothing upfront. We work on a contingency basis: our fee comes only from funds actually recovered for you. No recovery, no fee. You can also file directly with a settlement's claims administrator yourself at no cost."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How long until a claim pays out?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "It depends on the case: anywhere from several months to a few years, based on court approval, any appeals and how many claims are filed."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is Big Wolf Solutions a law firm?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Big Wolf Solutions helps businesses find and file claims in settlements they may qualify for, working with a claims recovery partner. We don't give legal advice or represent anyone in the lawsuits."
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Class action settlements businesses may be able to claim",
+ "numberOfItems": 69,
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Apple Pay (Merchant Fees)",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#apple-pay-merchant-fees"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "EMV Chips",
+   "url": "https://bigwolfsolutions.net/emv-chip-settlement"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "EMV Chips - ATM Operator Class",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#emv-chips-atm-operator-class"
+  },
+  {
+   "@type": "ListItem",
+   "position": 4,
+   "name": "Beef Commercial and Institutional Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#beef-commercial-and-institutional-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 5,
+   "name": "Beef Direct 2",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#beef-direct-2"
+  },
+  {
+   "@type": "ListItem",
+   "position": 6,
+   "name": "Beef Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#beef-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 7,
+   "name": "Dairy Products Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#dairy-products-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 8,
+   "name": "Frozen Potato Products Commercial Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#frozen-potato-products-commercial-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 9,
+   "name": "Frozen Potato Products Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#frozen-potato-products-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 10,
+   "name": "Pepsi Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#pepsi-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 11,
+   "name": "Pork Commercial Food Preparer Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#pork-commercial-food-preparer-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 12,
+   "name": "Shell Eggs Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#shell-eggs-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 13,
+   "name": "Turkey Commercial and Institutional Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#turkey-commercial-and-institutional-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 14,
+   "name": "Caustic Soda Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#caustic-soda-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 15,
+   "name": "Caustic Soda Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#caustic-soda-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 16,
+   "name": "Concrete and Cement Additives Commercial Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#concrete-and-cement-additives-commercial-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 17,
+   "name": "Concrete and Cement Additives Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#concrete-and-cement-additives-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 18,
+   "name": "Construction Equipment Rental",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#construction-equipment-rental"
+  },
+  {
+   "@type": "ListItem",
+   "position": 19,
+   "name": "Diisocyanates Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#diisocyanates-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 20,
+   "name": "HVAC Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#hvac-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 21,
+   "name": "HVAC Indirect Reseller",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#hvac-indirect-reseller"
+  },
+  {
+   "@type": "ListItem",
+   "position": 22,
+   "name": "PVC Pipes (Non Converter Seller and End User)",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#pvc-pipes-non-converter-seller-and-end-user"
+  },
+  {
+   "@type": "ListItem",
+   "position": 23,
+   "name": "Ready-Mix Concrete",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#ready-mix-concrete"
+  },
+  {
+   "@type": "ListItem",
+   "position": 24,
+   "name": "Acthar TPP",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#acthar-tpp"
+  },
+  {
+   "@type": "ListItem",
+   "position": 25,
+   "name": "Actos TPP (Pioglitazone)",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#actos-tpp-pioglitazone"
+  },
+  {
+   "@type": "ListItem",
+   "position": 26,
+   "name": "Affordable Care Act Transitional Reinsurance Program",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#affordable-care-act-transitional-reinsurance-program"
+  },
+  {
+   "@type": "ListItem",
+   "position": 27,
+   "name": "Amitiza TPP",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#amitiza-tpp"
+  },
+  {
+   "@type": "ListItem",
+   "position": 28,
+   "name": "cART Regimen TPP",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#cart-regimen-tpp"
+  },
+  {
+   "@type": "ListItem",
+   "position": 29,
+   "name": "CVS Caremark",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#cvs-caremark"
+  },
+  {
+   "@type": "ListItem",
+   "position": 30,
+   "name": "CVS TPP",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#cvs-tpp"
+  },
+  {
+   "@type": "ListItem",
+   "position": 31,
+   "name": "da Vinci Surgical Robot Service",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#da-vinci-surgical-robot-service"
+  },
+  {
+   "@type": "ListItem",
+   "position": 32,
+   "name": "Delta Dental Insurance",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#delta-dental-insurance"
+  },
+  {
+   "@type": "ListItem",
+   "position": 33,
+   "name": "Generic Pharmaceuticals Indirect-End Payor",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#generic-pharmaceuticals-indirect-end-payor"
+  },
+  {
+   "@type": "ListItem",
+   "position": 34,
+   "name": "Generic Pharmaceuticals Indirect-Reseller",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#generic-pharmaceuticals-indirect-reseller"
+  },
+  {
+   "@type": "ListItem",
+   "position": 35,
+   "name": "Invisalign Aligners",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#invisalign-aligners"
+  },
+  {
+   "@type": "ListItem",
+   "position": 36,
+   "name": "Invisalign Aligners TPP",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#invisalign-aligners-tpp"
+  },
+  {
+   "@type": "ListItem",
+   "position": 37,
+   "name": "Multiplan Health Insurance Provider",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#multiplan-health-insurance-provider"
+  },
+  {
+   "@type": "ListItem",
+   "position": 38,
+   "name": "Opiates",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#opiates"
+  },
+  {
+   "@type": "ListItem",
+   "position": 39,
+   "name": "Opiates TPP RICO 2",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#opiates-tpp-rico-2"
+  },
+  {
+   "@type": "ListItem",
+   "position": 40,
+   "name": "Zytiga TPP",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#zytiga-tpp"
+  },
+  {
+   "@type": "ListItem",
+   "position": 41,
+   "name": "Domestic Airlines",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#domestic-airlines"
+  },
+  {
+   "@type": "ListItem",
+   "position": 42,
+   "name": "FedEx Tariffs (IEEPA)",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#fedex-tariffs-ieepa"
+  },
+  {
+   "@type": "ListItem",
+   "position": 43,
+   "name": "Gasoline Commercial Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#gasoline-commercial-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 44,
+   "name": "Gasoline Direct (CA)",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#gasoline-direct-ca"
+  },
+  {
+   "@type": "ListItem",
+   "position": 45,
+   "name": "Northeast Airport Travel (American Airlines and JetBlue)",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#northeast-airport-travel-american-airlines-and-jetblue"
+  },
+  {
+   "@type": "ListItem",
+   "position": 46,
+   "name": "Shipping Containers Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#shipping-containers-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 47,
+   "name": "Shipping Containers Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#shipping-containers-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 48,
+   "name": "UPS Tariffs (IEEPA)",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#ups-tariffs-ieepa"
+  },
+  {
+   "@type": "ListItem",
+   "position": 49,
+   "name": "Facebook Advertising",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#facebook-advertising"
+  },
+  {
+   "@type": "ListItem",
+   "position": 50,
+   "name": "Google Advertising - Advertiser Class",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#google-advertising-advertiser-class"
+  },
+  {
+   "@type": "ListItem",
+   "position": 51,
+   "name": "Google Advertising - Publisher Class",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#google-advertising-publisher-class"
+  },
+  {
+   "@type": "ListItem",
+   "position": 52,
+   "name": "Hard Disk Drive (HDD) Suspension Assemblies Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#hard-disk-drive-hdd-suspension-assemblies-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 53,
+   "name": "Hard Disk Drive (HDD) Suspension Assemblies Indirect Reseller",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#hard-disk-drive-hdd-suspension-assemblies-indirect-reseller"
+  },
+  {
+   "@type": "ListItem",
+   "position": 54,
+   "name": "Smartphone AI",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#smartphone-ai"
+  },
+  {
+   "@type": "ListItem",
+   "position": 55,
+   "name": "Gilt Bond",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#gilt-bond"
+  },
+  {
+   "@type": "ListItem",
+   "position": 56,
+   "name": "Libor ICE",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#libor-ice"
+  },
+  {
+   "@type": "ListItem",
+   "position": 57,
+   "name": "Stock Loans 2",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#stock-loans-2"
+  },
+  {
+   "@type": "ListItem",
+   "position": 58,
+   "name": "Deere Repair Services",
+   "url": "https://bigwolfsolutions.net/deere-repair-settlement"
+  },
+  {
+   "@type": "ListItem",
+   "position": 59,
+   "name": "Fire Apparatus Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#fire-apparatus-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 60,
+   "name": "Fire Apparatus Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#fire-apparatus-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 61,
+   "name": "Card Shufflers",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#card-shufflers"
+  },
+  {
+   "@type": "ListItem",
+   "position": 62,
+   "name": "Containerboard Products Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#containerboard-products-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 63,
+   "name": "E-Cigarettes Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#e-cigarettes-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 64,
+   "name": "E-Cigarettes Reseller",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#e-cigarettes-reseller"
+  },
+  {
+   "@type": "ListItem",
+   "position": 65,
+   "name": "Energizer Battery Products Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#energizer-battery-products-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 66,
+   "name": "Fragrances Commercial Indirect",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#fragrances-commercial-indirect"
+  },
+  {
+   "@type": "ListItem",
+   "position": 67,
+   "name": "Fragrances Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#fragrances-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 68,
+   "name": "Keurig Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#keurig-direct"
+  },
+  {
+   "@type": "ListItem",
+   "position": 69,
+   "name": "Telescope Direct",
+   "url": "https://bigwolfsolutions.net/class-action-settlements#telescope-direct"
+  }
+ ]
+}
+</script>
+<!-- SCHEMA:END -->
+</head>
+<body>
+<div id="bws-home-root">
+
+  <!-- ══ NAV (shared, injected) ══════════════════════════════ -->
+  <div id="bws-header"></div>
+
+  <!-- ══ HERO ════════════════════════════════════════════════ -->
+  <section class="subhero">
+    <div class="container">
+      <div class="hero-pill"><span class="hero-pill-dot"></span> Settlement Recovery</div>
+      <h1>Class Action Settlements Your Business May Be Able to Claim</h1>
+      <p class="lead">Companies settle class action and antitrust lawsuits every year over card fees, food prices, building materials, advertising, prescription costs and more. Many of these settlements pay businesses, and most businesses never file. Below is every active case we track. Find yours, then let us check whether you qualify.</p>
+      <div class="hero-actions">
+        <a href="#cases" class="btn btn-primary">Search the case list <span class="arr">&rarr;</span></a>
+        <a href="#check" class="btn btn-secondary">Check my eligibility</a>
+      </div>
+      <div class="hero-badges">
+        <span class="hero-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> No recovery, no fee</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg> Free eligibility check</span>
+        <span class="hero-badge"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Fully confidential</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CASE LIST (rows generated by scripts/build_class_actions.py) ══ -->
+  <section class="band" id="cases" style="padding-top:0;">
+    <div class="container">
+      <div class="sec-head"><span class="h-eyebrow">Active cases</span>
+        <h2 class="headline wide">Active class action settlements for businesses. <span class="dim">Search by company, product or industry.</span></h2>
+      </div>
+      <div class="ca-tools">
+        <input type="search" id="ca-search" placeholder="Search a case, company or product (e.g. EMV chip, Deere, beef)" aria-label="Search cases">
+        <select id="ca-industry" aria-label="Filter by industry">
+          <option value="">All industries</option>
+<!-- INDUSTRY_OPTIONS:START -->
+          <option value="payments">Merchants and card payments</option>
+          <option value="food">Food, agriculture and restaurants</option>
+          <option value="construction">Construction, trades and building materials</option>
+          <option value="health">Healthcare, pharmacy and health plans</option>
+          <option value="transport">Transportation, automotive and shipping</option>
+          <option value="tech">Technology, electronics and advertising</option>
+          <option value="finance">Banking, finance and commodities</option>
+          <option value="equipment">Equipment and machinery</option>
+          <option value="consumer">Consumer products and retail</option>
+<!-- INDUSTRY_OPTIONS:END -->
+        </select>
+      </div>
+      <p class="ca-meta"><!-- CASECOUNT:START -->
+<span id="ca-count">69</span>
+<!-- CASECOUNT:END --> active cases &middot; List last updated <!-- UPDATED:START -->
+Nov 11, 2026
+<!-- UPDATED:END --></p>
+      <div class="ca-wrap">
+        <table class="ca-table">
+          <thead><tr><th scope="col">Case</th><th scope="col">Who can claim</th><th scope="col">Status</th><th scope="col"></th></tr></thead>
+<!-- CASES:START -->
+      <tbody data-industry="payments">
+        <tr class="ca-group"><th colspan="4" scope="colgroup">Merchants and card payments</th></tr>
+        <tr id="apple-pay-merchant-fees"><td>Apple Pay (Merchant Fees)</td><td>Merchants</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="emv-chips"><td><a href="/emv-chip-settlement">EMV Chips</a></td><td>Merchants</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="/emv-chip-settlement">Details</a></td></tr>
+        <tr id="emv-chips-atm-operator-class"><td>EMV Chips - ATM Operator Class</td><td>Merchants</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+      </tbody>
+      <tbody data-industry="food">
+        <tr class="ca-group"><th colspan="4" scope="colgroup">Food, agriculture and restaurants</th></tr>
+        <tr id="beef-commercial-and-institutional-indirect"><td>Beef Commercial and Institutional Indirect</td><td>Commercial indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="beef-direct-2"><td>Beef Direct 2</td><td>Direct purchasers</td><td><span class="ca-st open">Open</span> Deadline Nov 30, 2026</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="beef-indirect"><td>Beef Indirect</td><td>Indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="dairy-products-indirect"><td>Dairy Products Indirect</td><td>Indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="frozen-potato-products-commercial-indirect"><td>Frozen Potato Products Commercial Indirect</td><td>Commercial indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="frozen-potato-products-direct"><td>Frozen Potato Products Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="pepsi-direct"><td>Pepsi Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="pork-commercial-food-preparer-indirect"><td>Pork Commercial Food Preparer Indirect</td><td>Commercial indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="shell-eggs-direct"><td>Shell Eggs Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="turkey-commercial-and-institutional-indirect"><td>Turkey Commercial and Institutional Indirect</td><td>Commercial indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+      </tbody>
+      <tbody data-industry="construction">
+        <tr class="ca-group"><th colspan="4" scope="colgroup">Construction, trades and building materials</th></tr>
+        <tr id="caustic-soda-direct"><td>Caustic Soda Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="caustic-soda-indirect"><td>Caustic Soda Indirect</td><td>Indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="concrete-and-cement-additives-commercial-indirect"><td>Concrete and Cement Additives Commercial Indirect</td><td>Commercial indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="concrete-and-cement-additives-direct"><td>Concrete and Cement Additives Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="construction-equipment-rental"><td>Construction Equipment Rental</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="diisocyanates-direct"><td>Diisocyanates Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="hvac-direct"><td>HVAC Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="hvac-indirect-reseller"><td>HVAC Indirect Reseller</td><td>Indirect resellers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="pvc-pipes-non-converter-seller-and-end-user"><td>PVC Pipes (Non Converter Seller and End User)</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="ready-mix-concrete"><td>Ready-Mix Concrete</td><td>Buyers of the product or service</td><td><span class="ca-st open">Open</span> Deadline Nov 16, 2026</td><td><a href="#check">Check eligibility</a></td></tr>
+      </tbody>
+      <tbody data-industry="health">
+        <tr class="ca-group"><th colspan="4" scope="colgroup">Healthcare, pharmacy and health plans</th></tr>
+        <tr id="acthar-tpp"><td>Acthar TPP</td><td>Third-party payor (health plans)</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="actos-tpp-pioglitazone"><td>Actos TPP (Pioglitazone)</td><td>Third-party payor (health plans)</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="affordable-care-act-transitional-reinsurance-program"><td>Affordable Care Act Transitional Reinsurance Program</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="amitiza-tpp"><td>Amitiza TPP</td><td>Third-party payor (health plans)</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="cart-regimen-tpp"><td>cART Regimen TPP</td><td>Third-party payor (health plans)</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="cvs-caremark"><td>CVS Caremark</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="cvs-tpp"><td>CVS TPP</td><td>Third-party payor (health plans)</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="da-vinci-surgical-robot-service"><td>da Vinci Surgical Robot Service</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="delta-dental-insurance"><td>Delta Dental Insurance</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="generic-pharmaceuticals-indirect-end-payor"><td>Generic Pharmaceuticals Indirect-End Payor</td><td>Third-party payor (health plans)</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="generic-pharmaceuticals-indirect-reseller"><td>Generic Pharmaceuticals Indirect-Reseller</td><td>Indirect resellers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="invisalign-aligners"><td>Invisalign Aligners</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="invisalign-aligners-tpp"><td>Invisalign Aligners TPP</td><td>Third-party payor (health plans)</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="multiplan-health-insurance-provider"><td>Multiplan Health Insurance Provider</td><td>Healthcare providers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="opiates"><td>Opiates</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="opiates-tpp-rico-2"><td>Opiates TPP RICO 2</td><td>Third-party payor (health plans)</td><td><span class="ca-st open">Open</span> Deadline Dec 1, 2026</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="zytiga-tpp"><td>Zytiga TPP</td><td>Third-party payor (health plans)</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+      </tbody>
+      <tbody data-industry="transport">
+        <tr class="ca-group"><th colspan="4" scope="colgroup">Transportation, automotive and shipping</th></tr>
+        <tr id="domestic-airlines"><td>Domestic Airlines</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="fedex-tariffs-ieepa"><td>FedEx Tariffs (IEEPA)</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="gasoline-commercial-indirect"><td>Gasoline Commercial Indirect</td><td>Commercial indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="gasoline-direct-ca"><td>Gasoline Direct (CA)</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="northeast-airport-travel-american-airlines-and-jetblue"><td>Northeast Airport Travel (American Airlines and JetBlue)</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="shipping-containers-direct"><td>Shipping Containers Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="shipping-containers-indirect"><td>Shipping Containers Indirect</td><td>Indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="ups-tariffs-ieepa"><td>UPS Tariffs (IEEPA)</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+      </tbody>
+      <tbody data-industry="tech">
+        <tr class="ca-group"><th colspan="4" scope="colgroup">Technology, electronics and advertising</th></tr>
+        <tr id="facebook-advertising"><td>Facebook Advertising</td><td>Advertisers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="google-advertising-advertiser-class"><td>Google Advertising - Advertiser Class</td><td>Advertisers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="google-advertising-publisher-class"><td>Google Advertising - Publisher Class</td><td>Publishers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="hard-disk-drive-hdd-suspension-assemblies-indirect"><td>Hard Disk Drive (HDD) Suspension Assemblies Indirect</td><td>Indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="hard-disk-drive-hdd-suspension-assemblies-indirect-reseller"><td>Hard Disk Drive (HDD) Suspension Assemblies Indirect Reseller</td><td>Indirect resellers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="smartphone-ai"><td>Smartphone AI</td><td>Buyers of the product or service</td><td><span class="ca-st open">Open</span> Deadline Dec 21, 2026</td><td><a href="#check">Check eligibility</a></td></tr>
+      </tbody>
+      <tbody data-industry="finance">
+        <tr class="ca-group"><th colspan="4" scope="colgroup">Banking, finance and commodities</th></tr>
+        <tr id="gilt-bond"><td>Gilt Bond</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="libor-ice"><td>Libor ICE</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="stock-loans-2"><td>Stock Loans 2</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+      </tbody>
+      <tbody data-industry="equipment">
+        <tr class="ca-group"><th colspan="4" scope="colgroup">Equipment and machinery</th></tr>
+        <tr id="deere-repair-services"><td><a href="/deere-repair-settlement">Deere Repair Services</a></td><td>Buyers of the product or service</td><td><span class="ca-st open">Open</span> Deadline Dec 31, 2026</td><td><a href="/deere-repair-settlement">Details</a></td></tr>
+        <tr id="fire-apparatus-direct"><td>Fire Apparatus Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="fire-apparatus-indirect"><td>Fire Apparatus Indirect</td><td>Indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+      </tbody>
+      <tbody data-industry="consumer">
+        <tr class="ca-group"><th colspan="4" scope="colgroup">Consumer products and retail</th></tr>
+        <tr id="card-shufflers"><td>Card Shufflers</td><td>Buyers of the product or service</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="containerboard-products-direct"><td>Containerboard Products Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="e-cigarettes-direct"><td>E-Cigarettes Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="e-cigarettes-reseller"><td>E-Cigarettes Reseller</td><td>Indirect resellers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="energizer-battery-products-direct"><td>Energizer Battery Products Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="fragrances-commercial-indirect"><td>Fragrances Commercial Indirect</td><td>Commercial indirect purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="fragrances-direct"><td>Fragrances Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="keurig-direct"><td>Keurig Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+        <tr id="telescope-direct"><td>Telescope Direct</td><td>Direct purchasers</td><td><span class="ca-st confirm">Ask us</span> Status varies</td><td><a href="#check">Check eligibility</a></td></tr>
+      </tbody>
+<!-- CASES:END -->
+        </table>
+        <p class="ca-empty" id="ca-empty">No case matches that search. Your business may still qualify for a case not listed here. <a href="#check">Ask us to check.</a></p>
+      </div>
+      <p class="ca-disclaimer">"Ask us" means the case is on our watch list but a claim deadline isn't set or published yet. Deadlines can change; we confirm the current status before filing anything.</p>
+    </div>
+  </section>
+
+  <!-- ══ INDUSTRIES ══════════════════════════════════════════ -->
+  <section class="band has-wm">
+    <div class="wm m-rings"></div>
+    <div class="container">
+      <div class="sec-head"><span class="h-eyebrow">Who these cases pay</span>
+        <h2 class="headline wide">The industries that show up most. <span class="dim">If your business is in one of these, it's worth a look.</span></h2>
+      </div>
+      <div class="ca-ind">
+        <div><strong>Merchants that take cards</strong><p>Card processing fees, chargebacks after the EMV chip switch, and mobile wallet fees.</p></div>
+        <div><strong>Restaurants, grocers and food buyers</strong><p>Beef, pork, chicken, turkey, seafood, eggs, dairy and frozen potato price-fixing cases.</p></div>
+        <div><strong>Contractors and building trades</strong><p>Ready-mix concrete, cement additives, PVC pipe, HVAC equipment and equipment rental.</p></div>
+        <div><strong>Employers with health plans</strong><p>Self-funded health plans and union funds that paid for prescription drugs (TPP cases).</p></div>
+        <div><strong>Healthcare providers</strong><p>Hospitals, practices and dentists in provider network, device and service cases.</p></div>
+        <div><strong>Shippers, fleets and dealers</strong><p>Freight carrier charges, auto parts, trucks, dealer software and shipping containers.</p></div>
+        <div><strong>Advertisers and tech buyers</strong><p>Google and Facebook advertising, plus electronic components bought at scale.</p></div>
+        <div><strong>Farms and equipment owners</strong><p>Repair services, forklifts, fire apparatus and other machinery.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ (the FAQ schema is built from these questions) ═══ -->
+  <section class="band">
+    <div class="container">
+      <div class="sec-head center"><span class="h-eyebrow">Common questions</span>
+        <h2 class="headline" style="margin:0 auto;max-width:24ch">Class action settlements, explained.</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>What is a class action settlement?</summary>
+          <p>When a company is sued on behalf of a large group of people or businesses that were harmed in the same way, the case often ends in a settlement. The company pays into a fund, and members of the group file claims to receive their share. Money that isn't claimed doesn't come to you, so filing is what counts.</p>
+        </details>
+        <details>
+          <summary>Can a business file a claim, or are these only for consumers?</summary>
+          <p>Many of the largest settlements are for businesses. Price-fixing (antitrust) cases in particular pay companies that overpaid for products or services such as card processing, food products, building materials, equipment and advertising.</p>
+        </details>
+        <details>
+          <summary>What do "Direct" and "Indirect" mean in a case name?</summary>
+          <p>A direct purchaser bought straight from the companies that were sued. An indirect purchaser bought the same product through a distributor, wholesaler or reseller. "Commercial Indirect" and "Commercial Food Preparer" cases are for businesses such as restaurants, caterers and contractors that bought through distributors. Each group is usually paid from its own fund.</p>
+        </details>
+        <details>
+          <summary>What does "TPP" mean?</summary>
+          <p>TPP stands for third-party payor: an organization that paid for prescriptions or medical services on behalf of others, such as a self-funded employer health plan, a union health and welfare fund or an insurer. If your company self-funds its employees' health benefits, you may qualify for TPP settlements.</p>
+        </details>
+        <details>
+          <summary>Which industries see the most class action settlements?</summary>
+          <p>Merchants that accept cards, restaurants and food buyers, construction and trades, employers with self-funded health plans, healthcare providers, transportation and automotive businesses, advertisers, and companies that buy equipment, electronics or financial products at scale.</p>
+        </details>
+        <details>
+          <summary>How do I know if my business qualifies?</summary>
+          <p>Generally, your business bought the product or service during the dates the case covers (the class period), in the area the case covers. We review your business against the open cases and tell you which ones fit.</p>
+        </details>
+        <details>
+          <summary>What records do I need?</summary>
+          <p>Usually purchase records: invoices, vendor statements, accounts payable reports, or merchant processing statements for card-fee cases. TPP claims use prescription or claims data. Some settlements estimate your share from records the administrator already has, so missing paperwork doesn't always rule you out.</p>
+        </details>
+        <details>
+          <summary>Is there a deadline to file?</summary>
+          <p>Yes. Each settlement has its own claim deadline, and late claims are usually rejected. That's why we track every open case and its deadline.</p>
+        </details>
+        <details>
+          <summary>Am I suing anyone by filing a claim?</summary>
+          <p>No. Filing a claim in a settled case isn't filing a lawsuit. You don't go to court or testify. Claims are reviewed by a court-supervised claims administrator.</p>
+        </details>
+        <details>
+          <summary>What does it cost?</summary>
+          <p>Nothing upfront. We work on a contingency basis: our fee comes only from funds actually recovered for you. No recovery, no fee. You can also file directly with a settlement's claims administrator yourself at no cost.</p>
+        </details>
+        <details>
+          <summary>How long until a claim pays out?</summary>
+          <p>It depends on the case: anywhere from several months to a few years, based on court approval, any appeals and how many claims are filed.</p>
+        </details>
+        <details>
+          <summary>Is Big Wolf Solutions a law firm?</summary>
+          <p>No. Big Wolf Solutions helps businesses find and file claims in settlements they may qualify for, working with a claims recovery partner. We don't give legal advice or represent anyone in the lawsuits.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONVERSION / FORM ══════════════════════════════════ -->
+  <section class="band convert has-wm" id="check">
+    <div class="wm m-dots"></div>
+    <div class="container">
+      <div class="sec-head center"><span class="h-eyebrow">Free eligibility check</span>
+        <h2 class="headline" style="margin:0 auto;max-width:26ch">Tell us about your business. We'll match it to the open cases.</h2>
+      </div>
+      <div class="form-card">
+        <iframe
+          src="https://links.bigwolfsolutions.net/widget/form/sGeIoBYh3gjiVu2pi2l7"
+          style="width:100%;height:1300px;border:none;border-radius:12px;display:block;background:#fff"
+          id="inline-sGeIoBYh3gjiVu2pi2l7"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow" data-trigger-value=""
+          data-activation-type="alwaysActivated" data-activation-value=""
+          data-deactivation-type="neverDeactivate" data-deactivation-value=""
+          data-form-name="Universal Website Lead Capture Form"
+          data-height="1300" data-layout-iframe-id="inline-sGeIoBYh3gjiVu2pi2l7"
+          data-form-id="sGeIoBYh3gjiVu2pi2l7"
+          title="Universal Website Lead Capture Form"
+        ></iframe>
+        <script src="https://links.bigwolfsolutions.net/js/form_embed.js"></script>
+      </div>
+      <div class="convert-actions">
+        <a href="/schedule" class="btn btn-primary">Prefer to talk? Book a free call <span class="arr">&rarr;</span></a>
+        <a href="tel:8444430482" class="convert-phone">or call (844) 443-0482</a>
+      </div>
+      <p class="ca-disclaimer">Big Wolf Solutions is not a law firm and does not provide legal advice. Case information is a summary for general reference and may change; the official settlement website and court notices control. You may file a claim directly with any settlement's claims administrator at no cost.</p>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER (shared, injected) ═══════════════════════════ -->
+  <div id="bws-footer"></div>
+
+</div>
+
+<!-- ══ Case list search and industry filter ══ -->
+<script>
+(function () {
+  var q = document.getElementById('ca-search'), ind = document.getElementById('ca-industry');
+  var groups = document.querySelectorAll('.ca-table tbody'), empty = document.getElementById('ca-empty');
+  var count = document.getElementById('ca-count');
+  function run() {
+    var term = (q.value || '').trim().toLowerCase(), want = ind.value, shown = 0;
+    groups.forEach(function (g) {
+      var inInd = !want || g.getAttribute('data-industry') === want, any = 0;
+      g.querySelectorAll('tr[id]').forEach(function (r) {
+        var ok = inInd && (!term || r.textContent.toLowerCase().indexOf(term) !== -1);
+        r.style.display = ok ? '' : 'none';
+        if (ok) { any++; shown++; }
+      });
+      g.style.display = any ? '' : 'none';
+    });
+    empty.style.display = shown ? 'none' : 'block';
+    if (count) count.textContent = shown;
+  }
+  q.addEventListener('input', run);
+  ind.addEventListener('change', run);
+})();
+</script>
+
+<!-- ══ Shared header/footer injection (identical to every other page) ══ -->
+<script>
+(function () {
+  var BASE = 'https://cdn.jsdelivr.net/gh/murv-source/bws-site-assets@main/partials/';
+  function runScripts(host){host.querySelectorAll('script').forEach(function(old){var s=document.createElement('script');for(var i=0;i<old.attributes.length;i++)s.setAttribute(old.attributes[i].name,old.attributes[i].value);s.textContent=old.textContent;old.parentNode.replaceChild(s,old);});}
+  function inject(id,file){var host=document.getElementById(id);if(!host)return Promise.resolve();return fetch(BASE+file,{cache:'no-cache'}).then(function(r){return r.text();}).then(function(html){host.innerHTML=html;runScripts(host);});}
+  inject('bws-header','header.html').then(function(){return inject('bws-footer','footer.html');});
+})();
+</script>
+</body>
+</html>
