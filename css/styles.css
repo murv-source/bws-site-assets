@@ -348,3 +348,6 @@ body.tpl-home .bc-copy { padding: 1.5rem 1.7rem 1.7rem; flex: 1; }
   .footer-grid { grid-template-columns: 1fr; }
   .referral-in { flex-direction: column; align-items: flex-start; }
 }
+
+/* ── Menu item shown but inactive (e.g. page awaiting client review) ── */
+.nav-links a.nav-disabled, .mobile-menu a.nav-disabled { opacity: 0.4; cursor: default; pointer-events: none; }
