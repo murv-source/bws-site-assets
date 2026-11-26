@@ -33,6 +33,9 @@ body { font-family: var(--font); color: var(--body); background: var(--white); l
 /* ── Nav ─────────────────────────────────────────────────── */ nav.bws-nav { position: sticky; top: 0; z-index: 100; height: 66px; background: rgba(10,22,40,0.92); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1.25rem, 5vw, 2.5rem); border-bottom: 1px solid rgba(255,255,255,0.06); transition: box-shadow 0.3s; }
 nav.bws-nav.scrolled { box-shadow: 0 8px 32px rgba(0,0,0,0.28); }
 nav.bws-nav .nav-logo img { height: 42px; filter: brightness(0) invert(1); display: block; }
+/* Reserve the injected header's space so the page doesn't jump when header.html loads (layout shift) */
+#bws-header { min-height: 66px; }
+nav.bws-nav .nav-logo img { width: auto; aspect-ratio: 320 / 90; }
 .nav-links { display: flex; align-items: center; gap: 1.6rem; list-style: none; }
 .nav-links a { font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.72); text-decoration: none; transition: color 0.15s; cursor: pointer; }
 .nav-links a:hover { color: #fff; }
