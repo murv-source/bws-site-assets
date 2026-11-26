@@ -1,3 +1,16 @@
+/*
+ * Code Author: Murv Berry, Happy Path Marketing
+ * Website: happypathmarketing.com
+ * Email: murv@happypathmarketing.com
+ * Phone: (702) 789-7783
+ *
+ * OWNERSHIP NOTICE:
+ * This digital asset is the property of the client of Happy Path Marketing.
+ * No modifications, distributions, or alterations may be made to this code
+ * without the express written consent of the Client.
+ *
+ * Copyright © Happy Path Marketing. All rights reserved.
+ */
 /* ============================================================
    Big Wolf Solutions — shared site stylesheet
    Consolidated from the per-page inline <style> blocks that used
@@ -63,8 +76,8 @@ nav.bws-nav .nav-logo img { width: auto; aspect-ratio: 320 / 90; }
 .hero-text { text-align: left; max-width: 560px; margin: 0; padding: 0; }
 .hero-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.7); border: 1px solid var(--line); box-shadow: 0 1px 3px rgba(10,31,68,0.04); border-radius: var(--radius); padding: 6px 14px 6px 10px; font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 1.4rem; }
 .hero-pill-dot { width: 7px; height: 7px; background: var(--blue); border-radius: 50%; box-shadow: 0 0 0 3px rgba(30,107,255,0.18); }
-.hero h1 { font-size: clamp(2.3rem, 4.4vw, 3.7rem); font-weight: 700; color: var(--ink); line-height: 1.06; letter-spacing: -0.035em; margin-bottom: 1.25rem; }
-.hero h1 .accent { color: var(--blue); }
+.hero h1:not(.hero-pill), .hero .hero-headline { font-size: clamp(2.3rem, 4.4vw, 3.7rem); font-weight: 700; color: var(--ink); line-height: 1.06; letter-spacing: -0.035em; margin-bottom: 1.25rem; }
+.hero h1 .accent, .hero .hero-headline .accent { color: var(--blue); }
 .hero-sub { font-size: clamp(1.02rem, 1.4vw, 1.18rem); color: var(--body); line-height: 1.6; max-width: 48ch; margin: 0 0 1.9rem; }
 .hero-actions { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
 .hero-badges { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.1rem 1.4rem; }
@@ -218,8 +231,8 @@ nav.bws-nav .nav-logo img { width: auto; aspect-ratio: 320 / 90; }
 /* ── Inner-page additions ──────────────────────────────── */ .subhero { position: relative; overflow: hidden; background: radial-gradient(ellipse 70% 55% at 12% -5%, rgba(30,107,255,0.14) 0%, transparent 60%), radial-gradient(ellipse 55% 50% at 92% 8%, rgba(99,91,255,0.10) 0%, transparent 55%), linear-gradient(180deg,#fbfcff 0%,#ffffff 80%); padding: clamp(3rem,6vw,5.5rem) 0 clamp(2.5rem,5vw,4rem); text-align:center; }
 .subhero .container { max-width: 900px; }
 .subhero .hero-pill { margin-bottom: 1.4rem; }
-.subhero h1 { font-size: clamp(2.2rem,5vw,3.6rem); font-weight:700; color:var(--ink); line-height:1.06; letter-spacing:-0.035em; margin-bottom:1.2rem; }
-.subhero h1 .accent { color: var(--blue); }
+.subhero h1:not(.hero-pill), .subhero .hero-headline { font-size: clamp(2.2rem,5vw,3.6rem); font-weight:700; color:var(--ink); line-height:1.06; letter-spacing:-0.035em; margin-bottom:1.2rem; }
+.subhero h1 .accent, .subhero .hero-headline .accent { color: var(--blue); }
 .subhero p.lead { margin: 0 auto 1.9rem; font-size: clamp(1.05rem,1.6vw,1.2rem); max-width: 60ch; }
 .subhero .hero-actions { margin-bottom: 1.4rem; }
 .feature-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1.1rem; }
@@ -354,3 +367,9 @@ body.tpl-home .bc-copy { padding: 1.5rem 1.7rem 1.7rem; flex: 1; }
 
 /* ── Menu item shown but inactive (e.g. page awaiting client review) ── */
 .nav-links a.nav-disabled, .mobile-menu a.nav-disabled { opacity: 0.4; cursor: default; pointer-events: none; }
+
+/* ── Keyword H1s (Nov 2026) ──────────────────────────────────
+   The small label above each hero headline is the page's H1 (search phrase).
+   The big headline is a div styled exactly like the old H1. */
+h1.hero-pill { line-height: 1.6; letter-spacing: -0.011em; }
+.schedule-title { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 700; color: var(--ink); line-height: 1.1; letter-spacing: -0.03em; text-align: center; margin: 0 auto 0.75rem; }

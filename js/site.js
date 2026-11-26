@@ -1,3 +1,16 @@
+/*
+ * Code Author: Murv Berry, Happy Path Marketing
+ * Website: happypathmarketing.com
+ * Email: murv@happypathmarketing.com
+ * Phone: (702) 789-7783
+ *
+ * OWNERSHIP NOTICE:
+ * This digital asset is the property of the client of Happy Path Marketing.
+ * No modifications, distributions, or alterations may be made to this code
+ * without the express written consent of the Client.
+ *
+ * Copyright © Happy Path Marketing. All rights reserved.
+ */
 (function() {
   function forceFullWidth() {
     var root = document.getElementById('bws-home-root');
@@ -122,4 +135,72 @@
   el.id = 'bws-org-schema';
   el.text = JSON.stringify(data);
   (document.head || document.documentElement).appendChild(el);
+})();
+
+/* Keyword H1s. Added Nov 2026, wording approved by Big Wolf (Website H1 Wording Approval).
+   The small hero label becomes the page's one H1 (its search phrase) and the big headline
+   becomes a div with the same look. Page files are being updated to the same markup; once a
+   page is re-pasted it already has h1.hero-pill and this block leaves it alone.
+   /payroll-health is left out on purpose until the Supplemental Health split is settled. */
+(function() {
+  var LABELS = {
+    'homepage': 'Business Cost Recovery & Savings',
+    'about': 'About Big Wolf Solutions',
+    'agents': 'Become a Big Wolf Sales Agent',
+    'bookkeeping': 'Small Business Bookkeeping Services',
+    'business-data-monetization': 'Business Data Monetization',
+    'business-in-a-box': 'Business in a Box: All-in-One Solutions',
+    'commercial-insurance': 'Commercial Business Insurance',
+    'merchant-services': 'Merchant Services & Credit Card Processing',
+    'personal-insurance': 'Personal & Farm Insurance',
+    'r-d-tax-credits': 'R&D Tax Credit Services',
+    'referral-partner': 'Referral Partner Program',
+    'settlement-recovery': 'Class Action Settlement Recovery for Businesses',
+    'supplemental-health': 'Supplemental Employee Health Plans',
+    'testimonials': 'Big Wolf Solutions Client Reviews',
+    'unclaimed-property': 'Unclaimed Property Recovery for Businesses',
+    'blog': 'Big Wolf Solutions Blog'
+  };
+  var SCHEDULE_H1 = 'Book a Free Business Savings Review';
+
+  function slug() {
+    var p = location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+    return p === '' ? 'homepage' : p;
+  }
+
+  function swapTag(el, tag) {
+    var n = document.createElement(tag);
+    for (var i = 0; i < el.attributes.length; i++) n.setAttribute(el.attributes[i].name, el.attributes[i].value);
+    while (el.firstChild) n.appendChild(el.firstChild);
+    el.parentNode.replaceChild(n, el);
+    return n;
+  }
+
+  function run() {
+    var key = slug();
+    if (key === 'schedule') {
+      if (document.querySelector('h1')) return;
+      var lead = document.querySelector('#booking .lead');
+      if (!lead) return;
+      var t = document.createElement('h1');
+      t.className = 'schedule-title';
+      t.textContent = SCHEDULE_H1;
+      lead.parentNode.insertBefore(t, lead);
+      return;
+    }
+    var label = LABELS[key];
+    if (!label || document.querySelector('h1.hero-pill')) return;
+    var pill = document.querySelector('.hero-pill');
+    if (!pill) return;
+    var scope = pill.parentNode;
+    var headline = scope.querySelector('h1');
+    if (headline) swapTag(headline, 'div').classList.add('hero-headline');
+    var h1 = swapTag(pill, 'h1');
+    var dot = h1.querySelector('.hero-pill-dot');
+    h1.textContent = '';
+    if (dot) { h1.appendChild(dot); h1.appendChild(document.createTextNode(' ')); }
+    h1.appendChild(document.createTextNode(label));
+  }
+
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', run) : run();
 })();
