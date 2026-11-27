@@ -44,6 +44,7 @@ The file name matches the page's URL slug. Page files don't carry their own `<ti
 | `/agents` | `agents.html` |
 | `/cce` | `cce.html` |
 | `/business-data-monetization` | `business-data-monetization.html` |
+| `/fica-tip-credit` (draft, unpublished until Nick approves) | `fica-tip-credit.html` |
 | `/class-action-settlements` | `class-action-settlements.html` (generated, see Class action settlements below) |
 | `/page-not-found` (set as the domain's 404 page in GHL) | `404.html` (carries its own `noindex`; don't add a second robots tag in GHL) |
 

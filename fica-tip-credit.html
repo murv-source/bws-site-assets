@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://assets.cdn.filesafe.space/1ZMpwJ9nYwk9qTFScUtS/media/69cec39bfe4f1c0b67c6dd8c.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/murv-source/bws-site-assets@main/css/styles.css">
+
+  <!--
+    FICA Tip Credit service page.
+    Source copy: "FICA Tip Credit (Letter) - v4.pdf" (Laila, Nov 25, 2026; Asana "Webpage – Tip Tax Credit (FICA)").
+    v4 = v3 + Nick's feedback: no example profiles, no dollar examples or fee amounts; "Prior-Year Credits" section added.
+    Content rules (Asana "Webpage – FICA Tip Credit"): Big Wolf Solutions branding only, don't name the provider,
+    no commission structure, no guaranteed savings, don't name the 2025 bill.
+    Built ahead of final confirmations (Nov 27). Swap points are marked SWAP below:
+      SWAP-1  "Best fit for credits of $20,000+" line (Zeb: keep unless Ali/Nick say otherwise; not on v3/v4 flyer)
+      SWAP-2  Booking link: /schedule on bigwolfsolutions.net (Zeb's lean; Nick owns .com vs .net)
+      SWAP-3  Estimate form embed (Asana "add estimate form that sends to Nick") goes in the #estimate section
+    Nick reviews before publishing. Don't add to header menu or llms.txt until he approves.
+  -->
+
+  <!-- Structured data: helps Google and AI search tools understand the service and FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "FICA Tip Credit",
+        "serviceType": "FICA tip credit (IRC Section 45B) review and claim preparation",
+        "description": "Big Wolf Solutions helps restaurants, bars, salons and other tipped-employee businesses find out whether they can claim the federal FICA Tip Credit for the employer share of Social Security and Medicare tax paid on employee tips.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Big Wolf Solutions",
+          "url": "https://bigwolfsolutions.com",
+          "telephone": "+1-844-443-0482"
+        },
+        "areaServed": "US"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the FICA Tip Credit?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It is a federal tax credit (IRC Section 45B) for the employer share of Social Security and Medicare tax paid on employee tips. It is a dollar-for-dollar credit against income tax, not a deduction, and eligible businesses may claim it each year they meet the requirements." }
+          },
+          {
+            "@type": "Question",
+            "name": "Which businesses qualify for the FICA Tip Credit?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Food and beverage businesses such as restaurants, bars and cafes, plus beauty services such as salons beginning in 2025. Tips must be reported by employees, and the employer share of FICA taxes must be paid. Mandatory service charges do not qualify." }
+          },
+          {
+            "@type": "Question",
+            "name": "Which tips count toward the credit?",
+            "acceptedAnswer": { "@type": "Answer", "text": "When tipped staff earn at least $5.15 per hour (food and beverage) or $7.25 per hour (beauty) in cash wages, all reported tips can count toward the credit." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can my business claim the credit for prior years?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Eligible businesses may also qualify for prior-year credits. A review of your payroll records shows which years may apply." }
+          },
+          {
+            "@type": "Question",
+            "name": "What if my business doesn't owe enough income tax to use the full credit?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The credit is nonrefundable, but unused credit can carry forward to future years." }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does it cost?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Finding out costs nothing. If a credit is secured, the fee is a flat 20% of the credit. No credit, no fee." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this replace my CPA?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. We review your payroll records, calculate creditable tips and the estimated credit, have an independent CPA check the results, and prepare a draft Form 8846 for your own CPA to file." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div id="bws-home-root">
+
+
+    <!-- ══ NAV ════════════════════════════════════════════════ -->
+    <div id="bws-header"></div>
+
+
+
+    <section class="subhero">
+      <div class="container">
+        <h1 class="hero-pill"><span class="hero-pill-dot"></span> FICA Tip Credit</h1>
+        <div class="hero-headline">A federal credit for <span class="accent">tipped-employee businesses.</span></div>
+        <p class="lead">Restaurants, bars and salons may be able to claim a federal tax credit for payroll taxes
+          already paid on tips. Finding out costs nothing.</p>
+        <div class="hero-actions">
+          <!-- SWAP-2: booking link -->
+          <a href="/schedule" class="btn btn-primary">Book a free call <span class="arr">&rarr;</span></a>
+          <a href="#how" class="btn btn-secondary">See how it works</a>
+        </div>
+        <div class="hero-badges">
+          <span class="hero-badge"><svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg> Free to find out</span>
+          <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 12l2.5 2.5L16 9" />
+            </svg> No credit, no fee</span>
+          <span class="hero-badge"><svg viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+            </svg> Works with your CPA</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 1: BUSINESS TAX SAVINGS ═════════════════════ -->
+    <section class="band has-wm">
+      <div class="wm m-rings"></div>
+      <div class="container">
+        <div class="sec-head"><span class="h-eyebrow">Business tax savings</span>
+          <h2 class="headline wide">A dollar-for-dollar credit for tax you already pay. <span class="dim">It covers the
+              employer share of Social Security and Medicare tax on employee tips, available every year you have
+              qualifying tips.</span></h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-ic"><svg viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                <path d="M14 2v6h6" />
+                <path d="M8 13h8M8 17h6" />
+              </svg></div>
+            <h3>What is it?</h3>
+            <p>A federal credit (IRC &sect;45B) for the employer share of Social Security and Medicare tax paid on
+              employee tips. It is a dollar-for-dollar credit against income tax, not a deduction. Eligible businesses
+              may claim the credit each year they meet the requirements.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-ic"><svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+              </svg></div>
+            <h3>Who qualifies?</h3>
+            <p>Food and beverage businesses, plus beauty services beginning in 2025. Tips must be reported by
+              employees, and employer FICA taxes must be paid. Mandatory service charges do not qualify.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-ic"><svg viewBox="0 0 24 24">
+                <path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+              </svg></div>
+            <h3>Potential value</h3>
+            <p>When tipped staff earn at least $5.15/hr (food and beverage) or $7.25/hr (beauty) in cash wages, all
+              reported tips can count. The credit is nonrefundable; unused credit can carry forward.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 2: WHO IT'S FOR ════════════════════════════ -->
+    <section class="band">
+      <div class="container">
+        <div class="sec-head"><span class="h-eyebrow">Who it's for</span>
+          <h2 class="headline wide">Built for businesses with tipped staff. <span class="dim">A quick records review
+              tells you whether the credit applies.</span></h2>
+        </div>
+        <div class="two-card">
+          <div class="qual yes">
+            <h3>Often a good candidate</h3>
+            <ul>
+              <li><span class="mk">&#10003;</span>Restaurants, bars and cafes</li>
+              <li><span class="mk">&#10003;</span>Salons, barbers, nail and spa services (from 2025)</li>
+              <li><span class="mk">&#10003;</span>Employees report their tips through payroll</li>
+              <li><span class="mk">&#10003;</span>You pay the employer share of FICA on those tips</li>
+            </ul>
+          </div>
+          <div class="qual no">
+            <h3>Doesn't count toward the credit</h3>
+            <ul>
+              <li><span class="mk">&times;</span>Mandatory or automatic service charges</li>
+              <li><span class="mk">&times;</span>Tips employees don't report</li>
+              <li><span class="mk">&times;</span>Businesses outside food, beverage and beauty services</li>
+            </ul>
+          </div>
+        </div>
+        <!-- SWAP-1: remove this paragraph if Ali or Nick drop the $20,000+ line -->
+        <p class="lead" style="margin:2rem auto 0;text-align:center;max-width:62ch;font-size:0.95rem">Best fit for
+          credits of $20,000+.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 3: HOW IT WORKS ════════════════════════════ -->
+    <section class="band has-wm" id="how">
+      <div class="wm m-grid"></div>
+      <div class="container">
+        <div class="sec-head"><span class="h-eyebrow">How it works</span>
+          <h2 class="headline wide">Four steps from records to claim. <span class="dim">We do the work; your CPA
+              files.</span></h2>
+        </div>
+        <div class="steps" style="max-width:760px;margin:0 auto">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h4>Review</h4>
+              <p>We review your payroll records, 941s and W-2s.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h4>Calculate</h4>
+              <p>We calculate your creditable tips and your estimated credit.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h4>CPA review</h4>
+              <p>Our independent CPA checks the results.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div>
+              <h4>Claim</h4>
+              <p>We prepare a draft Form 8846 for your CPA to file.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 4: PRIOR YEARS + PRICING ═══════════════════ -->
+    <section class="band">
+      <div class="container">
+        <div class="two-card">
+          <div class="callout">
+            <span class="h-eyebrow">Prior-year credits</span>
+            <h2 class="headline" style="margin:0.6rem auto 0.8rem;max-width:18ch">Eligible businesses may also qualify
+              for prior-year credits.</h2>
+            <p>Your records review shows which years may apply.</p>
+          </div>
+          <div class="callout">
+            <span class="h-eyebrow">Simple pricing</span>
+            <div class="big" style="margin-top:0.6rem">20% flat fee</div>
+            <p>of the credit secured. No credit, no fee.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 5: FAQ ═════════════════════════════════════ -->
+    <section class="band has-wm">
+      <div class="wm m-dots"></div>
+      <div class="container">
+        <div class="sec-head center"><span class="h-eyebrow">Common questions</span>
+          <h2 class="headline" style="margin:0 auto;max-width:24ch">FICA Tip Credit questions, answered.</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>What is the FICA Tip Credit?</summary>
+            <p>It is a federal tax credit (IRC &sect;45B) for the employer share of Social Security and Medicare tax
+              paid on employee tips. It is a dollar-for-dollar credit against income tax, not a deduction, and
+              eligible businesses may claim it each year they meet the requirements.</p>
+          </details>
+          <details>
+            <summary>Which businesses qualify?</summary>
+            <p>Food and beverage businesses such as restaurants, bars and cafes, plus beauty services such as salons
+              beginning in 2025. Tips must be reported by employees, and the employer share of FICA taxes must be
+              paid. Mandatory service charges do not qualify.</p>
+          </details>
+          <details>
+            <summary>Which tips count toward the credit?</summary>
+            <p>When tipped staff earn at least $5.15/hr (food and beverage) or $7.25/hr (beauty) in cash wages, all
+              reported tips can count toward the credit.</p>
+          </details>
+          <details>
+            <summary>Can my business claim prior years?</summary>
+            <p>Eligible businesses may also qualify for prior-year credits. A review of your payroll records shows
+              which years may apply.</p>
+          </details>
+          <details>
+            <summary>What if my business doesn't owe enough income tax to use the full credit?</summary>
+            <p>The credit is nonrefundable, but unused credit can carry forward to future years.</p>
+          </details>
+          <details>
+            <summary>How much does it cost?</summary>
+            <p>Finding out costs nothing. If a credit is secured, the fee is a flat 20% of the credit. No credit, no
+              fee.</p>
+          </details>
+          <details>
+            <summary>Does this replace my CPA?</summary>
+            <p>No. We review your payroll records, calculate creditable tips and the estimated credit, have an
+              independent CPA check the results, and prepare a draft Form 8846 for your own CPA to file.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONVERSION ═════════════════════════════════════════
+         SWAP-3: when the GHL "Tip Tax Credit estimate" form exists, embed it here
+         (same iframe pattern as business-data-monetization.html) and point the
+         hero/final CTAs to #estimate. Submissions must go to Nick. -->
+    <section class="band convert" id="estimate">
+      <div class="container">
+        <div class="sec-head center"><span class="h-eyebrow">Free, no-obligation call</span>
+          <h2 class="headline" style="margin:0 auto 1.5rem;max-width:24ch">Find out what you may be owed.</h2>
+          <p class="lead" style="margin:0 auto;text-align:center;max-width:52ch">Book a free, no-obligation call with
+            Big Wolf Solutions.</p>
+        </div>
+        <div class="convert-actions">
+          <!-- SWAP-2: booking link -->
+          <a href="/schedule" class="btn btn-primary">Book a free call <span class="arr">&rarr;</span></a>
+          <a href="tel:8444430482" class="convert-phone">or call (844) 443-0482</a>
+        </div>
+        <p class="lead" style="margin:1.2rem auto 0;text-align:center;font-size:0.95rem">Email
+          <a href="mailto:nick@bigwolfsolutions.com" style="color:var(--blue);font-weight:600;text-decoration:none">nick@bigwolfsolutions.com</a></p>
+      </div>
+    </section>
+
+
+    <!-- ══ FINAL CTA ══════════════════════════════════════════ -->
+    <section class="band final-cta">
+      <div class="container">
+        <span class="h-eyebrow">Free to find out. No credit, no fee.</span>
+        <h2>See if your business qualifies.</h2>
+        <p>If your business has tipped employees, the FICA Tip Credit may apply. A free records review tells you
+          whether it does, and for which years.</p>
+        <div class="btns">
+          <!-- SWAP-2: booking link -->
+          <a href="/schedule" class="btn btn-primary">Book a free call <span class="arr">&rarr;</span></a>
+          <a href="/#services" class="btn btn-ghost">View all services</a>
+        </div>
+        <!-- Disclaimer: flyer v4 wording, with the provider name removed per the page's content rules -->
+        <p style="max-width:780px;margin:2rem auto 0;font-size:0.8rem;line-height:1.6;opacity:0.75">Estimates are
+          illustrative, not a guarantee of savings; results depend on your own payroll records and tax liability.
+          Eligibility and amounts are confirmed after a records review, and an independent CPA reviews the study. Big
+          Wolf Solutions is not a tax preparer and does not provide legal, tax or accounting advice. Any final
+          determination must be made by a qualified tax professional and the taxing authorities.</p>
+      </div>
+    </section>
+
+    <!-- ════ FOUNDER DIRECT-CONTACT BLOCK (reusable across pages) ════ -->
+    <div id="bws-footer"></div>
+
+  </div>
+
+<script>
+(function () {
+  var BASE = 'https://cdn.jsdelivr.net/gh/murv-source/bws-site-assets@main/partials/';
+  function runScripts(host){host.querySelectorAll('script').forEach(function(old){var s=document.createElement('script');for(var i=0;i<old.attributes.length;i++)s.setAttribute(old.attributes[i].name,old.attributes[i].value);s.textContent=old.textContent;old.parentNode.replaceChild(s,old);});}
+  function inject(id,file){var host=document.getElementById(id);if(!host)return Promise.resolve();return fetch(BASE+file,{cache:'no-cache'}).then(function(r){return r.text();}).then(function(html){host.innerHTML=html;runScripts(host);});}
+  inject('bws-header','header.html').then(function(){return inject('bws-footer','footer.html');});
+})();
+</script>
+</body>
+
+</html>
